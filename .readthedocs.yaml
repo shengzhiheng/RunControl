@@ -28,5 +28,5 @@ formats:
 # to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
-   conda:
-   - file: dependencies/conda_rc.yml
+  - method: pip
+      path: .
