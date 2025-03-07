@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>850</width>
-    <height>550</height>
+    <width>900</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -93,7 +93,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>826</width>
+             <width>876</width>
              <height>612</height>
             </rect>
            </property>
@@ -274,7 +274,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>max_ev_time_box</cstring>
+                 <cstring>max_num_ev_box</cstring>
                 </property>
                </widget>
               </item>
@@ -287,7 +287,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>max_num_ev_box</cstring>
+                 <cstring>max_ev_time_box</cstring>
                 </property>
                </widget>
               </item>
@@ -304,63 +304,8 @@
               <property name="spacing">
                <number>3</number>
               </property>
-              <item row="4" column="7">
-               <widget class="QCheckBox" name="active_acous_ch1">
-                <property name="text">
-                 <string>Ch 1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="6" rowspan="5">
-               <widget class="Line" name="line_6">
-                <property name="frameShadow">
-                 <enum>QFrame::Shadow::Raised</enum>
-                </property>
-                <property name="lineWidth">
-                 <number>2</number>
-                </property>
-                <property name="orientation">
-                 <enum>Qt::Orientation::Vertical</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="9">
-               <widget class="QCheckBox" name="active_acous_ch7">
-                <property name="text">
-                 <string>Ch 7</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="10">
-               <widget class="QCheckBox" name="active_acous_ch8">
-                <property name="text">
-                 <string>Ch 8</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="8">
-               <widget class="QCheckBox" name="active_acous_ch6">
-                <property name="text">
-                 <string>Ch 6</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="8">
-               <widget class="QCheckBox" name="active_acous_ch2">
-                <property name="text">
-                 <string>Ch 2</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="9">
-               <widget class="QCheckBox" name="active_acous_ch3">
-                <property name="text">
-                 <string>Ch 3</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="5" rowspan="2">
-               <widget class="QCheckBox" name="active_acous">
+              <item row="1" column="5">
+               <widget class="QCheckBox" name="active_caen">
                 <property name="font">
                  <font>
                   <bold>true</bold>
@@ -370,10 +315,38 @@
                  <enum>Qt::LayoutDirection::RightToLeft</enum>
                 </property>
                 <property name="text">
-                 <string>Acoustics</string>
+                 <string>CAEN</string>
                 </property>
                 <property name="tristate">
                  <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="4">
+               <widget class="QCheckBox" name="active_amp3">
+                <property name="text">
+                 <string>Amp 3</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="7">
+               <widget class="QCheckBox" name="active_caen_g0_trg">
+                <property name="text">
+                 <string>G0 Trg</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="2">
+               <widget class="QCheckBox" name="active_amp1_iv">
+                <property name="text">
+                 <string>Amp 1 IV</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="9">
+               <widget class="QCheckBox" name="active_caen_g2">
+                <property name="text">
+                 <string>Group 2</string>
                 </property>
                </widget>
               </item>
@@ -395,67 +368,24 @@
                 </property>
                </widget>
               </item>
-              <item row="5" column="7">
-               <widget class="QCheckBox" name="active_acous_ch5">
+              <item row="3" column="10">
+               <widget class="QCheckBox" name="active_caen_g3_acq">
                 <property name="text">
-                 <string>Ch 5</string>
+                 <string>G3 Acq</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0" colspan="11">
-               <widget class="QLabel" name="active_label">
-                <property name="font">
-                 <font>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::LeftToRight</enum>
-                </property>
+              <item row="2" column="9">
+               <widget class="QCheckBox" name="active_caen_g2_trg">
                 <property name="text">
-                 <string>Active Modules</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                 <string>G2 Trg</string>
                 </property>
                </widget>
               </item>
-              <item row="4" column="10">
-               <widget class="QCheckBox" name="active_acous_ch4">
+              <item row="3" column="4">
+               <widget class="QCheckBox" name="active_led3">
                 <property name="text">
-                 <string>Ch 4</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="QCheckBox" name="active_pressure">
-                <property name="text">
-                 <string>Pressure</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QCheckBox" name="active_sql">
-                <property name="text">
-                 <string>SQL</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QCheckBox" name="active_cams">
-                <property name="font">
-                 <font>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Cameras</string>
-                </property>
-                <property name="tristate">
-                 <bool>true</bool>
+                 <string>LED 3</string>
                 </property>
                </widget>
               </item>
@@ -466,56 +396,31 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="3">
-               <widget class="QCheckBox" name="active_cam2">
+              <item row="5" column="4">
+               <widget class="QCheckBox" name="active_amp3_iv">
                 <property name="text">
-                 <string>Cam 2</string>
+                 <string>Amp 3 IV</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="4">
-               <widget class="QCheckBox" name="active_cam3">
+              <item row="2" column="10">
+               <widget class="QCheckBox" name="active_caen_g3_trg">
                 <property name="text">
-                 <string>Cam 3</string>
+                 <string>G3 Trg</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="0">
-               <widget class="QCheckBox" name="active_led">
-                <property name="font">
-                 <font>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
+              <item row="3" column="9">
+               <widget class="QCheckBox" name="active_caen_g2_acq">
                 <property name="text">
-                 <string>LEDs</string>
-                </property>
-                <property name="tristate">
-                 <bool>true</bool>
+                 <string>G2 Acq</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="2">
-               <widget class="QCheckBox" name="active_led1">
+              <item row="4" column="3">
+               <widget class="QCheckBox" name="active_amp2">
                 <property name="text">
-                 <string>LED 1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="3">
-               <widget class="QCheckBox" name="active_led2">
-                <property name="text">
-                 <string>LED 2</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="4">
-               <widget class="QCheckBox" name="active_led3">
-                <property name="text">
-                 <string>LED 3</string>
+                 <string>Amp 2</string>
                 </property>
                </widget>
               </item>
@@ -537,73 +442,6 @@
                 </property>
                </widget>
               </item>
-              <item row="4" column="2">
-               <widget class="QCheckBox" name="active_amp1">
-                <property name="text">
-                 <string>Amp 1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="3">
-               <widget class="QCheckBox" name="active_amp2">
-                <property name="text">
-                 <string>Amp 2</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="4">
-               <widget class="QCheckBox" name="active_amp3">
-                <property name="text">
-                 <string>Amp 3</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="2">
-               <widget class="QCheckBox" name="active_amp1_iv">
-                <property name="text">
-                 <string>Amp 1 IV</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="3">
-               <widget class="QCheckBox" name="active_amp2_iv">
-                <property name="text">
-                 <string>Amp 2 IV</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="4">
-               <widget class="QCheckBox" name="active_amp3_iv">
-                <property name="text">
-                 <string>Amp 3 IV</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="5">
-               <widget class="QCheckBox" name="active_caen">
-                <property name="font">
-                 <font>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>CAEN</string>
-                </property>
-                <property name="tristate">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="7">
-               <widget class="QCheckBox" name="active_caen_g0">
-                <property name="text">
-                 <string>Group 0</string>
-                </property>
-               </widget>
-              </item>
               <item row="1" column="8">
                <widget class="QCheckBox" name="active_caen_g1">
                 <property name="text">
@@ -611,17 +449,10 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="9">
-               <widget class="QCheckBox" name="active_caen_g2">
+              <item row="1" column="2">
+               <widget class="QCheckBox" name="active_pressure">
                 <property name="text">
-                 <string>Group 2</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="10">
-               <widget class="QCheckBox" name="active_caen_g3">
-                <property name="text">
-                 <string>Group 3</string>
+                 <string>Pressure</string>
                 </property>
                </widget>
               </item>
@@ -638,24 +469,80 @@
                 </property>
                </widget>
               </item>
-              <item row="3" column="7">
-               <widget class="QCheckBox" name="active_caen_g0_acq">
-                <property name="text">
-                 <string>G0 Acq</string>
+              <item row="1" column="6" rowspan="5">
+               <widget class="Line" name="line_6">
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
+                <property name="lineWidth">
+                 <number>2</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Orientation::Vertical</enum>
                 </property>
                </widget>
               </item>
-              <item row="2" column="7">
-               <widget class="QCheckBox" name="active_caen_g0_trg">
+              <item row="3" column="2">
+               <widget class="QCheckBox" name="active_led1">
                 <property name="text">
-                 <string>G0 Trg</string>
+                 <string>LED 1</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="8">
-               <widget class="QCheckBox" name="active_caen_g1_trg">
+              <item row="1" column="3">
+               <widget class="QCheckBox" name="active_sql">
                 <property name="text">
-                 <string>G1 Trg</string>
+                 <string>SQL</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="10">
+               <widget class="QCheckBox" name="active_caen_g3">
+                <property name="text">
+                 <string>Group 3</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="QCheckBox" name="active_led2">
+                <property name="text">
+                 <string>LED 2</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="11">
+               <widget class="QLabel" name="active_label">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::LeftToRight</enum>
+                </property>
+                <property name="text">
+                 <string>Active Modules</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QCheckBox" name="active_led">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>LEDs</string>
+                </property>
+                <property name="tristate">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -666,31 +553,88 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="9">
-               <widget class="QCheckBox" name="active_caen_g2_trg">
+              <item row="2" column="4">
+               <widget class="QCheckBox" name="active_cam3">
                 <property name="text">
-                 <string>G2 Trg</string>
+                 <string>Cam 3</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="9">
-               <widget class="QCheckBox" name="active_caen_g2_acq">
+              <item row="2" column="3">
+               <widget class="QCheckBox" name="active_cam2">
                 <property name="text">
-                 <string>G2 Acq</string>
+                 <string>Cam 2</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="10">
-               <widget class="QCheckBox" name="active_caen_g3_trg">
+              <item row="3" column="7">
+               <widget class="QCheckBox" name="active_caen_g0_acq">
                 <property name="text">
-                 <string>G3 Trg</string>
+                 <string>G0 Acq</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="10">
-               <widget class="QCheckBox" name="active_caen_g3_acq">
+              <item row="2" column="8">
+               <widget class="QCheckBox" name="active_caen_g1_trg">
                 <property name="text">
-                 <string>G3 Acq</string>
+                 <string>G1 Trg</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="3">
+               <widget class="QCheckBox" name="active_amp2_iv">
+                <property name="text">
+                 <string>Amp 2 IV</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QCheckBox" name="active_amp1">
+                <property name="text">
+                 <string>Amp 1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="7">
+               <widget class="QCheckBox" name="active_caen_g0">
+                <property name="text">
+                 <string>Group 0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QCheckBox" name="active_cams">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Cameras</string>
+                </property>
+                <property name="tristate">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="5">
+               <widget class="QCheckBox" name="active_acous">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+                </property>
+                <property name="text">
+                 <string>Acoustics</string>
+                </property>
+                <property name="tristate">
+                 <bool>true</bool>
                 </property>
                </widget>
               </item>
@@ -832,6 +776,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>p_random_but</cstring>
+                </property>
                </widget>
               </item>
               <item row="7" column="4">
@@ -894,6 +841,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>pressure1_period</cstring>
                 </property>
                </widget>
               </item>
@@ -1081,6 +1031,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>pressure1_set</cstring>
+                </property>
                </widget>
               </item>
               <item row="5" column="0">
@@ -1093,6 +1046,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>pressure1_high</cstring>
                 </property>
                </widget>
               </item>
@@ -1133,6 +1089,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>p_enabled_box</cstring>
                 </property>
                </widget>
               </item>
@@ -1250,6 +1209,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>pressure1_slope</cstring>
                 </property>
                </widget>
               </item>
@@ -1370,6 +1332,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>plc_modbus_port_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="6" column="2">
@@ -1455,6 +1420,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>plc_hostname_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="3" column="5">
@@ -1501,6 +1469,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sql_run_table_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="1" column="1" colspan="4">
@@ -1534,6 +1505,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sql_port_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="3" column="5">
@@ -1543,6 +1517,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>sql_event_table_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -1554,6 +1531,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sql_token_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="2" column="5">
@@ -1563,6 +1543,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>sql_user_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -1614,6 +1597,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sql_hostname_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="3" column="0">
@@ -1623,6 +1609,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>sql_database_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -1638,6 +1627,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>sql_enabled_box</cstring>
                 </property>
                </widget>
               </item>
@@ -1705,7 +1697,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>826</width>
+             <width>876</width>
              <height>1035</height>
             </rect>
            </property>
@@ -1799,7 +1791,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp1_iv_stop_box</cstring>
                 </property>
                </widget>
               </item>
@@ -1828,7 +1820,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp1_iv_interval_box</cstring>
                 </property>
                </widget>
               </item>
@@ -1867,7 +1859,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp1_iv_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -1905,7 +1897,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp1_iv_step_box</cstring>
                 </property>
                </widget>
               </item>
@@ -1921,7 +1913,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp1_iv_rc_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -1988,7 +1980,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp1_iv_start_box</cstring>
                 </property>
                </widget>
               </item>
@@ -2063,6 +2055,9 @@
                 <property name="text">
                  <string>SiPM Amplifier 1</string>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_enabled_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="3" column="8" colspan="2">
@@ -2109,7 +2104,10 @@
               <item row="0" column="6">
                <widget class="QLabel" name="sipm_amp1_ch6_label">
                 <property name="text">
-                 <string>Ch6</string>
+                 <string>Ch 6</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch6_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -2126,21 +2124,30 @@
               <item row="0" column="4">
                <widget class="QLabel" name="sipm_amp1_ch4_label">
                 <property name="text">
-                 <string>Ch4</string>
+                 <string>Ch 4</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch4_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="5">
                <widget class="QLabel" name="sipm_amp1_ch5_label">
                 <property name="text">
-                 <string>Ch5</string>
+                 <string>Ch 5</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch5_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="3">
                <widget class="QLabel" name="sipm_amp1_ch3_label">
                 <property name="text">
-                 <string>Ch3</string>
+                 <string>Ch 3</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch3_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -2152,6 +2159,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch1_offset</cstring>
+                </property>
                </widget>
               </item>
               <item row="3" column="0">
@@ -2162,33 +2172,48 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch9_offset</cstring>
+                </property>
                </widget>
               </item>
               <item row="0" column="2">
                <widget class="QLabel" name="sipm_amp1_ch2_label">
                 <property name="text">
-                 <string>Ch2</string>
+                 <string>Ch 2</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch2_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="7">
                <widget class="QLabel" name="sipm_amp1_ch7_label">
                 <property name="text">
-                 <string>Ch7</string>
+                 <string>Ch 7</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch7_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="1">
                <widget class="QLabel" name="sipm_amp1_ch1_label">
                 <property name="text">
-                 <string>Ch1</string>
+                 <string>Ch 1</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch1_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="1">
                <widget class="QLabel" name="sipm_amp1_ch9_label">
                 <property name="text">
-                 <string>Ch9</string>
+                 <string>Ch 9</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch9_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -2205,56 +2230,80 @@
               <item row="0" column="8">
                <widget class="QLabel" name="sipm_amp1_ch8_label">
                 <property name="text">
-                 <string>Ch8</string>
+                 <string>Ch 8</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch8_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="2">
                <widget class="QLabel" name="sipm_amp1_ch10_label">
                 <property name="text">
-                 <string>Ch10</string>
+                 <string>Ch 10</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch10_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="3">
                <widget class="QLabel" name="sipm_amp1_ch11_label">
                 <property name="text">
-                 <string>Ch11</string>
+                 <string>Ch 11</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch11_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="4">
                <widget class="QLabel" name="sipm_amp1_ch12_label">
                 <property name="text">
-                 <string>Ch12</string>
+                 <string>Ch 12</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch12_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="5">
                <widget class="QLabel" name="sipm_amp1_ch13_label">
                 <property name="text">
-                 <string>Ch13</string>
+                 <string>Ch 13</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch13_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="6">
                <widget class="QLabel" name="sipm_amp1_ch14_label">
                 <property name="text">
-                 <string>Ch14</string>
+                 <string>Ch 14</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch14_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="7">
                <widget class="QLabel" name="sipm_amp1_ch15_label">
                 <property name="text">
-                 <string>Ch15</string>
+                 <string>Ch 15</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch15_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="8">
                <widget class="QLabel" name="sipm_amp1_ch16_label">
                 <property name="text">
-                 <string>Ch16</string>
+                 <string>Ch 16</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp1_ch16_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -2763,7 +2812,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp2_ip_addr_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -2779,7 +2828,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp2_iv_stop_box</cstring>
                 </property>
                </widget>
               </item>
@@ -2862,7 +2911,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp2_iv_start_box</cstring>
                 </property>
                </widget>
               </item>
@@ -2952,7 +3001,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp2_bias_box</cstring>
                 </property>
                </widget>
               </item>
@@ -2968,7 +3017,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_qp_box</cstring>
+                 <cstring>sipm_amp2_qp_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3006,7 +3055,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp2_iv_interval_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3022,7 +3071,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp2_iv_step_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3035,6 +3084,9 @@
                 </property>
                 <property name="text">
                  <string>SiPM Amplifier 2</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_enabled_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3070,7 +3122,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp2_iv_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -3086,7 +3138,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp2_iv_rc_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -3152,7 +3204,10 @@
               <item row="2" column="7">
                <widget class="QLabel" name="sipm_amp2_ch15_label">
                 <property name="text">
-                 <string>Ch15</string>
+                 <string>Ch 15</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch15_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3204,19 +3259,28 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch1_offset</cstring>
+                </property>
                </widget>
               </item>
               <item row="2" column="1">
                <widget class="QLabel" name="sipm_amp2_ch9_label">
                 <property name="text">
-                 <string>Ch9</string>
+                 <string>Ch 9</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch9_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="8">
                <widget class="QLabel" name="sipm_amp2_ch8_label">
                 <property name="text">
-                 <string>Ch8</string>
+                 <string>Ch 8</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch8_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3288,6 +3352,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch9_offset</cstring>
+                </property>
                </widget>
               </item>
               <item row="1" column="2">
@@ -3323,21 +3390,30 @@
               <item row="0" column="2">
                <widget class="QLabel" name="sipm_amp2_ch2_label">
                 <property name="text">
-                 <string>Ch2</string>
+                 <string>Ch 2</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch2_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="2">
                <widget class="QLabel" name="sipm_amp2_ch10_label">
                 <property name="text">
-                 <string>Ch10</string>
+                 <string>Ch 10</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch10_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="3">
                <widget class="QLabel" name="sipm_amp2_ch11_label">
                 <property name="text">
-                 <string>Ch11</string>
+                 <string>Ch 11</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch11_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3434,14 +3510,20 @@
               <item row="0" column="1">
                <widget class="QLabel" name="sipm_amp2_ch1_label">
                 <property name="text">
-                 <string>Ch1</string>
+                 <string>Ch 1</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch1_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="5">
                <widget class="QLabel" name="sipm_amp2_ch13_label">
                 <property name="text">
-                 <string>Ch13</string>
+                 <string>Ch 13</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch13_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3508,7 +3590,10 @@
               <item row="0" column="7">
                <widget class="QLabel" name="sipm_amp2_ch7_label">
                 <property name="text">
-                 <string>Ch7</string>
+                 <string>Ch 7</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch7_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3575,7 +3660,10 @@
               <item row="2" column="6">
                <widget class="QLabel" name="sipm_amp2_ch14_label">
                 <property name="text">
-                 <string>Ch14</string>
+                 <string>Ch 14</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch14_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3612,14 +3700,20 @@
               <item row="2" column="4">
                <widget class="QLabel" name="sipm_amp2_ch12_label">
                 <property name="text">
-                 <string>Ch12</string>
+                 <string>Ch 12</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch12_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="6">
                <widget class="QLabel" name="sipm_amp2_ch6_label">
                 <property name="text">
-                 <string>Ch6</string>
+                 <string>Ch 6</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch6_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3656,14 +3750,20 @@
               <item row="0" column="5">
                <widget class="QLabel" name="sipm_amp2_ch5_label">
                 <property name="text">
-                 <string>Ch5</string>
+                 <string>Ch 5</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch5_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="8">
                <widget class="QLabel" name="sipm_amp2_ch16_label">
                 <property name="text">
-                 <string>Ch16</string>
+                 <string>Ch 16</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch16_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3700,14 +3800,20 @@
               <item row="0" column="3">
                <widget class="QLabel" name="sipm_amp2_ch3_label">
                 <property name="text">
-                 <string>Ch3</string>
+                 <string>Ch 3</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch3_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="4">
                <widget class="QLabel" name="sipm_amp2_ch4_label">
                 <property name="text">
-                 <string>Ch4</string>
+                 <string>Ch 4</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp2_ch4_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -3802,7 +3908,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp3_iv_rc_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -3859,7 +3965,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp3_iv_stop_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3875,7 +3981,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp3_iv_interval_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3913,7 +4019,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp3_iv_start_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3936,7 +4042,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp3_bias_box</cstring>
                 </property>
                </widget>
               </item>
@@ -3965,7 +4071,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_qp_box</cstring>
+                 <cstring>sipm_amp3_qp_box</cstring>
                 </property>
                </widget>
               </item>
@@ -4003,7 +4109,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_bias_box</cstring>
+                 <cstring>sipm_amp3_iv_step_box</cstring>
                 </property>
                </widget>
               </item>
@@ -4019,7 +4125,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp3_iv_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -4035,7 +4141,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>sipm_amp1_ip_addr_edit</cstring>
+                 <cstring>sipm_amp3_ip_addr_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -4048,6 +4154,9 @@
                 </property>
                 <property name="text">
                  <string>SiPM Amplifier 3</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_enabled_box</cstring>
                 </property>
                </widget>
               </item>
@@ -4127,6 +4236,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch9_offset</cstring>
+                </property>
                </widget>
               </item>
               <item row="1" column="6">
@@ -4192,7 +4304,10 @@
               <item row="0" column="7">
                <widget class="QLabel" name="sipm_amp3_ch7_label">
                 <property name="text">
-                 <string>Ch7</string>
+                 <string>Ch 7</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch7_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4259,7 +4374,10 @@
               <item row="0" column="3">
                <widget class="QLabel" name="sipm_amp3_ch3_label">
                 <property name="text">
-                 <string>Ch3</string>
+                 <string>Ch 3</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch3_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4271,19 +4389,28 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch1_offset</cstring>
+                </property>
                </widget>
               </item>
               <item row="0" column="2">
                <widget class="QLabel" name="sipm_amp3_ch2_label">
                 <property name="text">
-                 <string>Ch2</string>
+                 <string>Ch 2</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch2_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="8">
                <widget class="QLabel" name="sipm_amp3_ch16_label">
                 <property name="text">
-                 <string>Ch16</string>
+                 <string>Ch 16</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch16_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4410,7 +4537,10 @@
               <item row="2" column="5">
                <widget class="QLabel" name="sipm_amp3_ch13_label">
                 <property name="text">
-                 <string>Ch13</string>
+                 <string>Ch 13</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch13_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4447,7 +4577,10 @@
               <item row="0" column="6">
                <widget class="QLabel" name="sipm_amp3_ch6_label">
                 <property name="text">
-                 <string>Ch6</string>
+                 <string>Ch 6</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch6_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4484,21 +4617,30 @@
               <item row="0" column="4">
                <widget class="QLabel" name="sipm_amp3_ch4_label">
                 <property name="text">
-                 <string>Ch4</string>
+                 <string>Ch 4</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch4_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="1">
                <widget class="QLabel" name="sipm_amp3_ch9_label">
                 <property name="text">
-                 <string>Ch9</string>
+                 <string>Ch 9</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch9_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="0" column="8">
                <widget class="QLabel" name="sipm_amp3_ch8_label">
                 <property name="text">
-                 <string>Ch8</string>
+                 <string>Ch 8</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch8_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4565,21 +4707,30 @@
               <item row="2" column="3">
                <widget class="QLabel" name="sipm_amp3_ch11_label">
                 <property name="text">
-                 <string>Ch11</string>
+                 <string>Ch 11</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch11_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="7">
                <widget class="QLabel" name="sipm_amp3_ch15_label">
                 <property name="text">
-                 <string>Ch15</string>
+                 <string>Ch 15</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch15_offset</cstring>
                 </property>
                </widget>
               </item>
               <item row="2" column="2">
                <widget class="QLabel" name="sipm_amp3_ch10_label">
                 <property name="text">
-                 <string>Ch10</string>
+                 <string>Ch 10</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch10_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4626,7 +4777,10 @@
               <item row="0" column="1">
                <widget class="QLabel" name="sipm_amp3_ch1_label">
                 <property name="text">
-                 <string>Ch1</string>
+                 <string>Ch 1</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch1_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4693,7 +4847,10 @@
               <item row="2" column="4">
                <widget class="QLabel" name="sipm_amp3_ch12_label">
                 <property name="text">
-                 <string>Ch12</string>
+                 <string>Ch 12</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch12_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4730,7 +4887,10 @@
               <item row="0" column="5">
                <widget class="QLabel" name="sipm_amp3_ch5_label">
                 <property name="text">
-                 <string>Ch5</string>
+                 <string>Ch 5</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch5_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4747,7 +4907,10 @@
               <item row="2" column="6">
                <widget class="QLabel" name="sipm_amp3_ch14_label">
                 <property name="text">
-                 <string>Ch14</string>
+                 <string>Ch 14</string>
+                </property>
+                <property name="buddy">
+                 <cstring>sipm_amp3_ch14_offset</cstring>
                 </property>
                </widget>
               </item>
@@ -4786,8 +4949,20 @@
         <property name="topMargin">
          <number>0</number>
         </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
          <widget class="QScrollArea" name="scrollArea">
+          <property name="frameShape">
+           <enum>QFrame::Shape::NoFrame</enum>
+          </property>
+          <property name="lineWidth">
+           <number>0</number>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -4796,9 +4971,15 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>889</width>
+             <width>876</width>
              <height>886</height>
             </rect>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>1000</width>
+             <height>16777215</height>
+            </size>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_11">
             <property name="leftMargin">
@@ -4880,7 +5061,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_decimation_box</cstring>
+                 <cstring>caen_mem_full_box</cstring>
                 </property>
                </widget>
               </item>
@@ -4910,18 +5091,6 @@
                   <string>One Buf Free</string>
                  </property>
                 </item>
-               </widget>
-              </item>
-              <item row="0" column="0" colspan="4">
-               <widget class="QLabel" name="caen_general_label">
-                <property name="font">
-                 <font>
-                  <bold>true</bold>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>CAEN Digitizer General</string>
-                </property>
                </widget>
               </item>
               <item row="4" column="6">
@@ -4969,7 +5138,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_io_box</cstring>
+                 <cstring>caen_acq_box</cstring>
                 </property>
                </widget>
               </item>
@@ -4983,7 +5152,7 @@
               <item row="2" column="4">
                <widget class="QLabel" name="caen_conn_label">
                 <property name="text">
-                 <string>Connection Type</string>
+                 <string>Conn Type</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
@@ -5036,13 +5205,13 @@
               <item row="6" column="0">
                <widget class="QLabel" name="caen_clock_label">
                 <property name="text">
-                 <string>Clock Source</string>
+                 <string>Clock Src</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_polarity_box</cstring>
+                 <cstring>caen_clock_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5069,7 +5238,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_length_box</cstring>
+                 <cstring>caen_majority_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5122,7 +5291,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_length_box</cstring>
+                 <cstring>caen_majority_window_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5173,13 +5342,13 @@
               <item row="5" column="6">
                <widget class="QLabel" name="caen_ch_trig_label">
                 <property name="text">
-                 <string>SW Trig Mode</string>
+                 <string>Ch Trig Mode</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_sw_trig_box</cstring>
+                 <cstring>caen_ch_trig_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5337,7 +5506,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_link_box</cstring>
+                 <cstring>caen_data_path_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5360,7 +5529,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_decimation_box</cstring>
+                 <cstring>caen_counting_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5376,6 +5545,21 @@
                   <string>All</string>
                  </property>
                 </item>
+               </widget>
+              </item>
+              <item row="0" column="0" colspan="4">
+               <widget class="QLabel" name="caen_general_label">
+                <property name="font">
+                 <font>
+                  <bold>true</bold>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>CAEN Digitizer General</string>
+                </property>
+                <property name="buddy">
+                 <cstring>caen_enabled_box</cstring>
+                </property>
                </widget>
               </item>
              </layout>
@@ -5653,6 +5837,9 @@
                 <property name="text">
                  <string>Group 0</string>
                 </property>
+                <property name="buddy">
+                 <cstring>caen_g0_enable_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="1" column="5">
@@ -5816,7 +6003,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_g0_thres_box</cstring>
+                 <cstring>caen_g0_offset_box</cstring>
                 </property>
                </widget>
               </item>
@@ -5849,7 +6036,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_g0_thres_box</cstring>
+                 <cstring>caen_g0_range_box</cstring>
                 </property>
                </widget>
               </item>
@@ -6196,7 +6383,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_g0_thres_box</cstring>
+                 <cstring>caen_g1_range_box</cstring>
                 </property>
                </widget>
               </item>
@@ -6385,6 +6572,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>caen_g1_offset_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="0" column="0">
@@ -6396,6 +6586,9 @@
                 </property>
                 <property name="text">
                  <string>Group 1</string>
+                </property>
+                <property name="buddy">
+                 <cstring>caen_g1_enable_box</cstring>
                 </property>
                </widget>
               </item>
@@ -6656,7 +6849,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_g0_thres_box</cstring>
+                 <cstring>caen_g2_range_box</cstring>
                 </property>
                </widget>
               </item>
@@ -6950,6 +7143,9 @@
                 <property name="text">
                  <string>Group 2</string>
                 </property>
+                <property name="buddy">
+                 <cstring>caen_g2_enable_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="3" column="5">
@@ -7064,6 +7260,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>caen_g2_offset_box</cstring>
                 </property>
                </widget>
               </item>
@@ -7197,6 +7396,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>caen_g3_offset_box</cstring>
                 </property>
                </widget>
               </item>
@@ -7483,6 +7685,9 @@
                 <property name="text">
                  <string>Group 3</string>
                 </property>
+                <property name="buddy">
+                 <cstring>caen_g3_enable_box</cstring>
+                </property>
                </widget>
               </item>
               <item row="2" column="2">
@@ -7621,7 +7826,7 @@
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>caen_g0_thres_box</cstring>
+                 <cstring>caen_g3_range_box</cstring>
                 </property>
                </widget>
               </item>
@@ -7789,8 +7994,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>840</width>
-             <height>474</height>
+             <width>876</width>
+             <height>549</height>
             </rect>
            </property>
            <property name="maximumSize">
@@ -7823,32 +8028,6 @@
               <property name="spacing">
                <number>3</number>
               </property>
-              <item row="0" column="2" colspan="4">
-               <widget class="QLineEdit" name="acous_driver_dir_edit"/>
-              </item>
-              <item row="2" column="3">
-               <widget class="NoWheelSpinBox" name="acous_pre_trig_box">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="maximum">
-                 <number>4096</number>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <widget class="QLabel" name="acous_pre_trig_label">
-                <property name="text">
-                 <string>Pre Trig Length</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-                </property>
-                <property name="buddy">
-                 <cstring>acous_pre_trig_box</cstring>
-                </property>
-               </widget>
-              </item>
               <item row="2" column="1">
                <widget class="NoWheelComboBox" name="acous_sample_rate_box">
                 <property name="focusPolicy">
@@ -7941,65 +8120,23 @@
                 </item>
                </widget>
               </item>
-              <item row="3" column="3">
-               <widget class="NoWheelSpinBox" name="acous_post_trig_box">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="prefix">
-                 <string/>
-                </property>
-                <property name="maximum">
-                 <number>256000000</number>
-                </property>
-                <property name="singleStep">
-                 <number>16</number>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="2">
-               <widget class="QLabel" name="acous_post_trig_label">
+              <item row="3" column="4">
+               <widget class="QLabel" name="acous_trig_delay_label">
                 <property name="text">
-                 <string>Post Trig Length</string>
+                 <string>Trig Delay</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>acous_post_trig_box</cstring>
+                 <cstring>acous_trig_delay_box</cstring>
                 </property>
                </widget>
               </item>
-              <item row="0" column="0">
-               <widget class="QCheckBox" name="acous_enabled_box">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
+              <item row="1" column="6">
+               <widget class="QToolButton" name="acous_driver_path_but">
                 <property name="text">
-                 <string>Enabled</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="5" colspan="2">
-               <widget class="NoWheelSpinBox" name="acous_trig_delay_box">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="maximum">
-                 <number>1000</number>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QLabel" name="acous_exec_path_label">
-                <property name="text">
-                 <string>Executable Path</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-                </property>
-                <property name="buddy">
-                 <cstring>acous_sample_rate_box</cstring>
+                 <string>...</string>
                 </property>
                </widget>
               </item>
@@ -8016,19 +8153,263 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="1" colspan="5">
-               <widget class="QLineEdit" name="acous_exec_path_edit"/>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="acous_driver_dir_label">
+              <item row="4" column="4">
+               <widget class="QLabel" name="acous_trig_holdoff_label">
                 <property name="text">
-                 <string>Driver Directory</string>
+                 <string>Trig Holdoff</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>acous_sample_rate_box</cstring>
+                 <cstring>acous_trig_holdoff_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="5" colspan="2">
+               <widget class="NoWheelSpinBox" name="acous_trig_holdoff_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="2">
+               <widget class="QLabel" name="acous_post_trig_label">
+                <property name="text">
+                 <string>Post Trig Length</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_post_trig_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3" colspan="3">
+               <widget class="QLineEdit" name="acous_driver_path_edit"/>
+              </item>
+              <item row="4" column="0">
+               <widget class="QLabel" name="acous_timestamp_clock_label">
+                <property name="text">
+                 <string>Timestamp Clock</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="5" colspan="2">
+               <widget class="NoWheelSpinBox" name="acous_trig_delay_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="maximum">
+                 <number>1000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="NoWheelSpinBox" name="acous_acq_seg_count_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>1</number>
+                </property>
+                <property name="value">
+                 <number>1</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="5" colspan="2">
+               <widget class="NoWheelDoubleSpinBox" name="acous_trig_timeout_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>false</bool>
+                </property>
+                <property name="suffix">
+                 <string> s</string>
+                </property>
+                <property name="decimals">
+                 <number>7</number>
+                </property>
+                <property name="maximum">
+                 <double>1410.000000000000000</double>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QLabel" name="acous_pre_trig_label">
+                <property name="text">
+                 <string>Pre Trig Length</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_pre_trig_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="NoWheelComboBox" name="acous_mode_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Single</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Dual</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Quad</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Octal</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QLabel" name="acous_acq_seg_count_label">
+                <property name="text">
+                 <string>Segment Count</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_acq_seg_count_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="NoWheelSpinBox" name="acous_pre_trig_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="maximum">
+                 <number>4096</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="acous_mode_label">
+                <property name="text">
+                 <string>Mode</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_mode_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="acous_timestamp_mode_label">
+                <property name="text">
+                 <string>Timestamp Mode</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_mode_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="6">
+               <widget class="QToolButton" name="acous_data_dir_but">
+                <property name="text">
+                 <string>...</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="NoWheelComboBox" name="acous_timestamp_mode_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Free</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Reset</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="NoWheelSpinBox" name="acous_post_trig_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="maximum">
+                 <number>256000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>16</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" colspan="4">
+               <widget class="QLineEdit" name="acous_data_dir_edit"/>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="acous_driver_path_label">
+                <property name="text">
+                 <string>Driver Path</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_driver_path_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -8045,39 +8426,43 @@
                 </property>
                </widget>
               </item>
-              <item row="1" column="6">
-               <widget class="QToolButton" name="acous_exec_path_but">
+              <item row="4" column="1">
+               <widget class="NoWheelComboBox" name="acous_timestamp_clock_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Fixed</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Sample</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QCheckBox" name="acous_enabled_box">
+                <property name="layoutDirection">
+                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+                </property>
                 <property name="text">
-                 <string>...</string>
+                 <string>Enabled</string>
                 </property>
                </widget>
               </item>
-              <item row="3" column="4">
-               <widget class="QLabel" name="acous_trig_delay_label">
+              <item row="0" column="1">
+               <widget class="QLabel" name="acous_data_dir_label">
                 <property name="text">
-                 <string>Trig Delay</string>
+                 <string>Data Dir</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>acous_trig_delay_box</cstring>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="5" colspan="2">
-               <widget class="NoWheelDoubleSpinBox" name="acous_trig_timeout_box">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="suffix">
-                 <string> s</string>
-                </property>
-                <property name="decimals">
-                 <number>3</number>
-                </property>
-                <property name="maximum">
-                 <double>1410.000000000000000</double>
+                 <cstring>acous_data_dir_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -8091,7 +8476,7 @@
              </widget>
             </item>
             <item>
-             <layout class="QGridLayout" name="acous_per_ch_grid" columnstretch="0,1,1,1,1,0,1,1">
+             <layout class="QGridLayout" name="acous_per_ch_grid" columnstretch="0,1,1,1,1,0,1,1,0">
               <property name="topMargin">
                <number>6</number>
               </property>
@@ -8101,590 +8486,28 @@
               <property name="spacing">
                <number>3</number>
               </property>
-              <item row="6" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch6">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch6">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch5">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch7">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Ch 7</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="1">
-               <widget class="QLabel" name="acous_range_label">
-                <property name="text">
-                 <string>Range</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="5">
+              <item row="7" column="6">
                <widget class="QCheckBox" name="acous_trig_ch7">
                 <property name="text">
                  <string>Trigger</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="2">
-               <widget class="QLabel" name="acous_offset_label">
-                <property name="text">
-                 <string>DC Offset</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch2">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch2">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch3">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="1">
-               <widget class="QComboBox" name="acous_range_ch7">
-                <item>
-                 <property name="text">
-                  <string>±5 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch1">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Ch 1</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ext"/>
-              </item>
-              <item row="3" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch3">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch5">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="1">
-               <widget class="QComboBox" name="acous_range_ch6">
-                <item>
-                 <property name="text">
-                  <string>±5 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="3" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch3">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Ch3</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch2">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="styleSheet">
-                 <string notr="true"/>
-                </property>
-                <property name="text">
-                 <string>Ch 2</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="1">
-               <widget class="QComboBox" name="acous_range_ch1">
-                <item>
-                 <property name="text">
-                  <string>±5 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch1">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Positive</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Negative</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="5" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch5">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Ch 5</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch4">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch8">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch1">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="0">
-               <widget class="QLabel" name="acous_ext_label">
-                <property name="text">
-                 <string>Ext</string>
-                </property>
-                <property name="alignment">
-                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch1">
-                <item>
-                 <property name="text">
-                  <string>50 Ω</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>1M Ω</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
               <item row="8" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch8">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch4">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="7">
-               <widget class="QLabel" name="acous_threshold_label">
-                <property name="text">
-                 <string>Threshold</string>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="1">
-               <widget class="QComboBox" name="acous_range_ch4">
+               <widget class="QComboBox" name="acous_coupling_ch8">
                 <item>
                  <property name="text">
-                  <string>±5 V</string>
+                  <string>AC</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="1" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch1">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch6">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Ch 6</string>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="1">
-               <widget class="QComboBox" name="acous_range_ch2">
-                <item>
-                 <property name="text">
-                  <string>±5 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="8" column="1">
-               <widget class="QComboBox" name="acous_range_ch8">
-                <item>
-                 <property name="text">
-                  <string>±5 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="8" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch8">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
-                </property>
-                <property name="text">
-                 <string>Ch 8</string>
-                </property>
-               </widget>
-              </item>
-              <item row="1" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch1">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="2" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch2">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="6">
-               <widget class="QLabel" name="acous_polarity_label">
-                <property name="text">
-                 <string>Slope</string>
-                </property>
-               </widget>
-              </item>
-              <item row="6" column="5">
-               <widget class="QCheckBox" name="acous_trig_ch6">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="1">
-               <widget class="QComboBox" name="acous_range_ch5">
-                <item>
-                 <property name="text">
-                  <string>±5 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±2 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±1 V</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±500 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±200 mV</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>±100 mV</string>
+                  <string>DC</string>
                  </property>
                 </item>
                </widget>
               </item>
               <item row="3" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch3">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="9" column="5">
-               <widget class="QCheckBox" name="acous_trig_ext">
-                <property name="text">
-                 <string>Trigger</string>
-                </property>
-               </widget>
-              </item>
-              <item row="0" column="3">
-               <widget class="QLabel" name="acous_impedance_label">
-                <property name="text">
-                 <string>Impedance</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch7">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="4" column="7">
-               <widget class="NoWheelSpinBox" name="acous_threshold_ch4">
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-               </widget>
-              </item>
-              <item row="8" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch8">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="7" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch7">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="5" column="2">
-               <widget class="NoWheelSpinBox" name="acous_offset_ch5">
-                <property name="suffix">
-                 <string>%</string>
-                </property>
-               </widget>
-              </item>
-              <item row="3" column="1">
                <widget class="QComboBox" name="acous_range_ch3">
                 <item>
                  <property name="text">
@@ -8718,25 +8541,74 @@
                 </item>
                </widget>
               </item>
-              <item row="4" column="0">
-               <widget class="QCheckBox" name="acous_enable_ch4">
-                <property name="layoutDirection">
-                 <enum>Qt::LayoutDirection::RightToLeft</enum>
+              <item row="1" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch1">
+                <property name="suffix">
+                 <string> mV</string>
                 </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch7">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch3">
                 <property name="text">
-                 <string>Ch 4</string>
+                 <string>Trigger</string>
                 </property>
                </widget>
               </item>
-              <item row="0" column="4">
-               <widget class="QLabel" name="acous_coupling_label">
-                <property name="text">
-                 <string>Coupling</string>
+              <item row="9" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ext">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Rising</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Falling</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch1">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
                 </property>
                </widget>
               </item>
-              <item row="2" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch2">
+              <item row="1" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch1">
                 <item>
                  <property name="text">
                   <string>50 Ω</string>
@@ -8749,105 +8621,59 @@
                 </item>
                </widget>
               </item>
-              <item row="3" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch3">
+              <item row="3" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
                 <item>
                  <property name="text">
-                  <string>50 Ω</string>
+                  <string>Rising</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>1M Ω</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="4" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch4">
-                <item>
-                 <property name="text">
-                  <string>50 Ω</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>1M Ω</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="5" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch5">
-                <item>
-                 <property name="text">
-                  <string>50 Ω</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>1M Ω</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="6" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch6">
-                <item>
-                 <property name="text">
-                  <string>50 Ω</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>1M Ω</string>
+                  <string>Falling</string>
                  </property>
                 </item>
                </widget>
               </item>
               <item row="7" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch7">
-                <item>
-                 <property name="text">
-                  <string>50 Ω</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>1M Ω</string>
-                 </property>
-                </item>
+               <widget class="NoWheelSpinBox" name="acous_offset_ch7">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
                </widget>
               </item>
-              <item row="8" column="3">
-               <widget class="QComboBox" name="acous_impedance_ch8">
-                <item>
-                 <property name="text">
-                  <string>50 Ω</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>1M Ω</string>
-                 </property>
-                </item>
+              <item row="6" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch6">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
                </widget>
               </item>
-              <item row="1" column="4">
-               <widget class="QComboBox" name="acous_coupling_ch1">
-                <item>
-                 <property name="text">
-                  <string>AC</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>DC</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="2" column="4">
+              <item row="2" column="5">
                <widget class="QComboBox" name="acous_coupling_ch2">
                 <item>
                  <property name="text">
@@ -8861,7 +8687,264 @@
                 </item>
                </widget>
               </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="acous_ch1">
+                <property name="text">
+                 <string>Ch 1</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch2">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="2">
+               <widget class="QComboBox" name="acous_range_ch8">
+                <item>
+                 <property name="text">
+                  <string>±5 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±2 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch3">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch6">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch2">
+                <item>
+                 <property name="text">
+                  <string>50 Ω</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>1M Ω</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QComboBox" name="acous_range_ch1">
+                <item>
+                 <property name="text">
+                  <string>±5 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±2 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="8">
+               <widget class="QLabel" name="acous_threshold_label">
+                <property name="text">
+                 <string>Threshold</string>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="0">
+               <widget class="QLabel" name="acous_ch8">
+                <property name="text">
+                 <string>Ch 8</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="6">
+               <widget class="QCheckBox" name="acous_trig_ext">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch6">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QLabel" name="acous_impedance_label">
+                <property name="text">
+                 <string>Impedance</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="0">
+               <widget class="QLabel" name="acous_ch5">
+                <property name="text">
+                 <string>Ch 5</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="0">
+               <widget class="QLabel" name="acous_ch6">
+                <property name="text">
+                 <string>Ch 6</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch2">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch2">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="acous_range_label">
+                <property name="text">
+                 <string>Range</string>
+                </property>
+               </widget>
+              </item>
               <item row="3" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch3">
+                <item>
+                 <property name="text">
+                  <string>50 Ω</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>1M Ω</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="5" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch5">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="5">
+               <widget class="QComboBox" name="acous_coupling_ch1">
+                <item>
+                 <property name="text">
+                  <string>AC</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DC</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="5">
                <widget class="QComboBox" name="acous_coupling_ch3">
                 <item>
                  <property name="text">
@@ -8875,7 +8958,469 @@
                 </item>
                </widget>
               </item>
+              <item row="2" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Rising</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Falling</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="5" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch5">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch4">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch8">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
               <item row="4" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch4">
+                <item>
+                 <property name="text">
+                  <string>50 Ω</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>1M Ω</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="5">
+               <widget class="QLabel" name="acous_coupling_label">
+                <property name="text">
+                 <string>Coupling</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="acous_ch2">
+                <property name="text">
+                 <string>Ch 2</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch4">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Rising</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Falling</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch1">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
+               </widget>
+              </item>
+              <item row="9" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ext"/>
+              </item>
+              <item row="8" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch8">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Rising</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Falling</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="7" column="0">
+               <widget class="QLabel" name="acous_ch7">
+                <property name="text">
+                 <string>Ch 7</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="2">
+               <widget class="QComboBox" name="acous_range_ch2">
+                <item>
+                 <property name="text">
+                  <string>±5 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±2 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="QLabel" name="acous_offset_label">
+                <property name="text">
+                 <string>DC Offset</string>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="5">
+               <widget class="QComboBox" name="acous_coupling_ch7">
+                <item>
+                 <property name="text">
+                  <string>AC</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>DC</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch4">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Rising</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Falling</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="4" column="2">
+               <widget class="QComboBox" name="acous_range_ch4">
+                <item>
+                 <property name="text">
+                  <string>±5 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±2 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch3">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
+                <item>
+                 <property name="text">
+                  <string>Rising</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>Falling</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="8" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch8">
+                <item>
+                 <property name="text">
+                  <string>50 Ω</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>1M Ω</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="7" column="2">
+               <widget class="QComboBox" name="acous_range_ch7">
+                <item>
+                 <property name="text">
+                  <string>±5 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±2 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="acous_ch3">
+                <property name="text">
+                 <string>Ch 3</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="2">
+               <widget class="QComboBox" name="acous_range_ch6">
+                <item>
+                 <property name="text">
+                  <string>±5 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±2 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="8" column="6">
+               <widget class="QCheckBox" name="acous_trig_ch8">
+                <property name="text">
+                 <string>Trigger</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="5">
                <widget class="QComboBox" name="acous_coupling_ch4">
                 <item>
                  <property name="text">
@@ -8889,7 +9434,7 @@
                 </item>
                </widget>
               </item>
-              <item row="5" column="4">
+              <item row="5" column="5">
                <widget class="QComboBox" name="acous_coupling_ch5">
                 <item>
                  <property name="text">
@@ -8904,48 +9449,59 @@
                </widget>
               </item>
               <item row="6" column="4">
-               <widget class="QComboBox" name="acous_coupling_ch6">
+               <widget class="QComboBox" name="acous_impedance_ch6">
                 <item>
                  <property name="text">
-                  <string>AC</string>
+                  <string>50 Ω</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>DC</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="7" column="4">
-               <widget class="QComboBox" name="acous_coupling_ch7">
-                <item>
-                 <property name="text">
-                  <string>AC</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>DC</string>
+                  <string>1M Ω</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="8" column="4">
-               <widget class="QComboBox" name="acous_coupling_ch8">
+              <item row="0" column="7">
+               <widget class="QLabel" name="acous_polarity_label">
+                <property name="text">
+                 <string>Condition</string>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="iconSize">
+                 <size>
+                  <width>16</width>
+                  <height>16</height>
+                 </size>
+                </property>
+                <property name="frame">
+                 <bool>true</bool>
+                </property>
                 <item>
                  <property name="text">
-                  <string>AC</string>
+                  <string>Rising</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>DC</string>
+                  <string>Falling</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="9" column="1">
+              <item row="9" column="2">
                <widget class="QComboBox" name="acous_range_ext">
                 <item>
                  <property name="text">
@@ -8959,104 +9515,69 @@
                 </item>
                </widget>
               </item>
-              <item row="2" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch2">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
+              <item row="5" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch5">
                 <item>
                  <property name="text">
-                  <string>Positive</string>
+                  <string>50 Ω</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
+                  <string>1M Ω</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="3" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch3">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
+              <item row="5" column="2">
+               <widget class="QComboBox" name="acous_range_ch5">
                 <item>
                  <property name="text">
-                  <string>Positive</string>
+                  <string>±5 V</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
-                 </property>
-                </item>
-               </widget>
-              </item>
-              <item row="4" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch4">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
-                </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
-                <item>
-                 <property name="text">
-                  <string>Positive</string>
+                  <string>±2 V</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
+                  <string>±1 V</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±500 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±200 mV</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>±100 mV</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="5" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch5">
+              <item row="5" column="3">
+               <widget class="NoWheelSpinBox" name="acous_offset_ch5">
+                <property name="suffix">
+                 <string> mV</string>
+                </property>
+                <property name="minimum">
+                 <number>-5000</number>
+                </property>
+                <property name="maximum">
+                 <number>5000</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="7">
+               <widget class="NoWheelComboBox" name="acous_polarity_ch1">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -9077,82 +9598,344 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string>Positive</string>
+                  <string>Rising</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
+                  <string>Falling</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="6" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch6">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
+              <item row="4" column="0">
+               <widget class="QLabel" name="acous_ch4">
+                <property name="text">
+                 <string>Ch 4</string>
                 </property>
-                <property name="focusPolicy">
-                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
                 </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
+               </widget>
+              </item>
+              <item row="7" column="4">
+               <widget class="QComboBox" name="acous_impedance_ch7">
                 <item>
                  <property name="text">
-                  <string>Positive</string>
+                  <string>50 Ω</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
+                  <string>1M Ω</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="7" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch7">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
-                </property>
+              <item row="8" column="8">
+               <widget class="NoWheelSpinBox" name="acous_threshold_ch8">
                 <property name="focusPolicy">
                  <enum>Qt::FocusPolicy::StrongFocus</enum>
                 </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
-                </property>
-                <property name="frame">
-                 <bool>true</bool>
-                </property>
+               </widget>
+              </item>
+              <item row="6" column="5">
+               <widget class="QComboBox" name="acous_coupling_ch6">
                 <item>
                  <property name="text">
-                  <string>Positive</string>
+                  <string>AC</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
+                  <string>DC</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="8" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ch8">
+              <item row="9" column="0">
+               <widget class="QLabel" name="acous_ext_label">
+                <property name="text">
+                 <string>Ext</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_range_ext</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLabel" name="acous_name_label">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Name</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="acous_name_ch1">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="acous_name_ch2">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="acous_name_ch3">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="1">
+               <widget class="QLineEdit" name="acous_name_ch4">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="5" column="1">
+               <widget class="QLineEdit" name="acous_name_ch5">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="6" column="1">
+               <widget class="QLineEdit" name="acous_name_ch6">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="7" column="1">
+               <widget class="QLineEdit" name="acous_name_ch7">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+              <item row="8" column="1">
+               <widget class="QLineEdit" name="acous_name_ch8">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QGridLayout" name="acous_application_grid">
+              <property name="topMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>3</number>
+              </property>
+              <property name="spacing">
+               <number>3</number>
+              </property>
+              <item row="0" column="5">
+               <widget class="NoWheelSpinBox" name="acous_page_size_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>1</number>
+                </property>
+                <property name="value">
+                 <number>1</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLabel" name="acous_seg_start_label">
+                <property name="text">
+                 <string>Segment Start</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="acous_start_pos_label">
+                <property name="text">
+                 <string>Start Position</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="NoWheelSpinBox" name="acous_transfer_len_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="maximum">
+                 <number>1000000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>1</number>
+                </property>
+                <property name="value">
+                 <number>4096</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="acous_transfer_len_label">
+                <property name="text">
+                 <string>Transfer Length</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="3">
+               <widget class="NoWheelSpinBox" name="acous_seg_start_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="minimum">
+                 <number>1</number>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>1</number>
+                </property>
+                <property name="value">
+                 <number>1</number>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="4">
+               <widget class="QLabel" name="acous_page_size_label">
+                <property name="text">
+                 <string>Page Size</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="NoWheelSpinBox" name="acous_start_pos_box">
+                <property name="focusPolicy">
+                 <enum>Qt::FocusPolicy::StrongFocus</enum>
+                </property>
+                <property name="showGroupSeparator" stdset="0">
+                 <bool>true</bool>
+                </property>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>1</number>
+                </property>
+                <property name="value">
+                 <number>0</number>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLabel" name="acous_seg_count_label">
+                <property name="text">
+                 <string>Segment Count</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="5">
+               <widget class="NoWheelComboBox" name="acous_file_format_box">
                 <property name="sizePolicy">
                  <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
@@ -9173,47 +9956,71 @@
                 </property>
                 <item>
                  <property name="text">
-                  <string>Positive</string>
+                  <string>TYPE_DEC</string>
                  </property>
                 </item>
                 <item>
                  <property name="text">
-                  <string>Negative</string>
+                  <string>TYPE_HEX</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>TYPE_FLOAT</string>
                  </property>
                 </item>
                </widget>
               </item>
-              <item row="9" column="6">
-               <widget class="NoWheelComboBox" name="acous_slope_ext">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
+              <item row="1" column="4">
+               <widget class="QLabel" name="acous_file_format_label">
+                <property name="text">
+                 <string>Save File Format</string>
                 </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="3">
+               <widget class="NoWheelSpinBox" name="acous_seg_count_box">
                 <property name="focusPolicy">
                  <enum>Qt::FocusPolicy::StrongFocus</enum>
                 </property>
-                <property name="iconSize">
-                 <size>
-                  <width>16</width>
-                  <height>16</height>
-                 </size>
-                </property>
-                <property name="frame">
+                <property name="showGroupSeparator" stdset="0">
                  <bool>true</bool>
                 </property>
-                <item>
-                 <property name="text">
-                  <string>Positive</string>
-                 </property>
-                </item>
-                <item>
-                 <property name="text">
-                  <string>Negative</string>
-                 </property>
-                </item>
+                <property name="prefix">
+                 <string/>
+                </property>
+                <property name="maximum">
+                 <number>1000000</number>
+                </property>
+                <property name="singleStep">
+                 <number>1</number>
+                </property>
+                <property name="value">
+                 <number>5</number>
+                </property>
                </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="acous_file_name_label">
+                <property name="text">
+                 <string>Save File Name</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>acous_timestamp_clock_box</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1" colspan="5">
+               <widget class="QLineEdit" name="acous_file_name_edit"/>
               </item>
              </layout>
             </item>
@@ -9280,7 +10087,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>826</width>
+             <width>876</width>
              <height>562</height>
             </rect>
            </property>
@@ -9505,11 +10312,23 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="font">
+               <font>
+                <bold>true</bold>
+                <kerning>true</kerning>
+               </font>
+              </property>
               <property name="focusPolicy">
                <enum>Qt::FocusPolicy::StrongFocus</enum>
               </property>
               <property name="text">
                <string>Cam 3</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+              <property name="buddy">
+               <cstring>cam3_enabled_box</cstring>
               </property>
              </widget>
             </item>
@@ -9543,11 +10362,24 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>11</pointsize>
+                <bold>true</bold>
+                <kerning>true</kerning>
+               </font>
+              </property>
               <property name="focusPolicy">
                <enum>Qt::FocusPolicy::StrongFocus</enum>
               </property>
               <property name="text">
                <string>Cam 1</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+              <property name="buddy">
+               <cstring>cam1_enabled_box</cstring>
               </property>
              </widget>
             </item>
@@ -9618,7 +10450,7 @@
                <string>RC Config Path</string>
               </property>
               <property name="buddy">
-               <cstring>cam1_config_path</cstring>
+               <cstring>cam1_rc_config_path</cstring>
               </property>
              </widget>
             </item>
@@ -9767,11 +10599,23 @@
                 <verstretch>0</verstretch>
                </sizepolicy>
               </property>
+              <property name="font">
+               <font>
+                <bold>true</bold>
+                <kerning>true</kerning>
+               </font>
+              </property>
               <property name="focusPolicy">
                <enum>Qt::FocusPolicy::StrongFocus</enum>
               </property>
               <property name="text">
                <string>Cam 2</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+              <property name="buddy">
+               <cstring>cam2_enabled_box</cstring>
               </property>
              </widget>
             </item>
@@ -10466,7 +11310,7 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>826</width>
+             <width>876</width>
              <height>1364</height>
             </rect>
            </property>
@@ -12042,6 +12886,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>trigger_sketch_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="17" column="2">
@@ -12721,6 +13568,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>trigger_port_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="2" column="8" colspan="2">
@@ -12732,7 +13582,7 @@
                  <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>trig_reset_pin_box</cstring>
+                 <cstring>trig_loop_box</cstring>
                 </property>
                </widget>
               </item>
@@ -12907,7 +13757,7 @@
                  <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>trig_heartbeat_pin_box</cstring>
+                 <cstring>trig_led_gate_pin_box</cstring>
                 </property>
                </widget>
               </item>
@@ -12942,7 +13792,7 @@
                  <set>Qt::AlignmentFlag::AlignCenter</set>
                 </property>
                 <property name="buddy">
-                 <cstring>trig_heartbeat_pin_box</cstring>
+                 <cstring>trig_led_gate_cycles_box</cstring>
                 </property>
                </widget>
               </item>
@@ -13282,7 +14132,7 @@
               <item row="3" column="4">
                <widget class="QLabel" name="clock_period_label">
                 <property name="text">
-                 <string>Period (100us)</string>
+                 <string>Period (loops)</string>
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -13829,6 +14679,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>clock_port_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="17" column="7" colspan="2">
@@ -14135,6 +14988,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>clock_sketch_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -14982,6 +15838,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>clock_loop_box</cstring>
+                </property>
                </widget>
               </item>
              </layout>
@@ -15014,6 +15873,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>position_mac_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="1" column="2">
@@ -15023,6 +15885,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>position_sketch_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -15037,6 +15902,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>position_gateway_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="2" column="2">
@@ -15046,6 +15914,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>position_ip_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -15081,6 +15952,9 @@
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
                 </property>
+                <property name="buddy">
+                 <cstring>position_port_edit</cstring>
+                </property>
                </widget>
               </item>
               <item row="1" column="4">
@@ -15100,6 +15974,9 @@
                 </property>
                 <property name="alignment">
                  <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>position_subnet_edit</cstring>
                 </property>
                </widget>
               </item>
@@ -15267,36 +16144,28 @@
  <tabstops>
   <tabstop>acoustics_scroll_area</tabstop>
   <tabstop>cam_scroll_area</tabstop>
-  <tabstop>acous_enable_ch1</tabstop>
   <tabstop>acous_offset_ch1</tabstop>
   <tabstop>acous_trig_ch1</tabstop>
-  <tabstop>acous_slope_ch1</tabstop>
+  <tabstop>acous_polarity_ch1</tabstop>
   <tabstop>acous_threshold_ch1</tabstop>
-  <tabstop>acous_enable_ch2</tabstop>
   <tabstop>acous_offset_ch2</tabstop>
   <tabstop>acous_trig_ch2</tabstop>
   <tabstop>acous_threshold_ch2</tabstop>
-  <tabstop>acous_enable_ch3</tabstop>
   <tabstop>acous_offset_ch3</tabstop>
   <tabstop>acous_trig_ch3</tabstop>
   <tabstop>acous_threshold_ch3</tabstop>
-  <tabstop>acous_enable_ch4</tabstop>
   <tabstop>acous_offset_ch4</tabstop>
   <tabstop>acous_trig_ch4</tabstop>
   <tabstop>acous_threshold_ch4</tabstop>
-  <tabstop>acous_enable_ch5</tabstop>
   <tabstop>acous_offset_ch5</tabstop>
   <tabstop>acous_trig_ch5</tabstop>
   <tabstop>acous_threshold_ch5</tabstop>
-  <tabstop>acous_enable_ch6</tabstop>
   <tabstop>acous_offset_ch6</tabstop>
   <tabstop>acous_trig_ch6</tabstop>
   <tabstop>acous_threshold_ch6</tabstop>
-  <tabstop>acous_enable_ch7</tabstop>
   <tabstop>acous_offset_ch7</tabstop>
   <tabstop>acous_trig_ch7</tabstop>
   <tabstop>acous_threshold_ch7</tabstop>
-  <tabstop>acous_enable_ch8</tabstop>
   <tabstop>acous_offset_ch8</tabstop>
   <tabstop>acous_trig_ch8</tabstop>
   <tabstop>acous_threshold_ch8</tabstop>
