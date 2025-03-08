@@ -19,6 +19,15 @@ extensions = [
     'sphinx.ext.intersphinx',
 ]
 
+# fake install packages not available in conda/pip
+autodoc_mock_imports = [
+    "red_caen",     # or whatever the name is for the Python extension that depends on CAENComm
+    "CAENComm",     # if you import it in Python
+    "CAENDigitizer",
+    "CAENVME",
+    "CAENUSB",
+]
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3/', None),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
