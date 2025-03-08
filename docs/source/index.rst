@@ -8,5 +8,5 @@ Contents
 .. toctree::
 
    index
-   installation
+   usage
    api
