@@ -33,4 +33,4 @@ conda:
 python:
   install:
   - method: conda
-  - environment: dependencies/conda_rc.yml
+    environment: dependencies/conda_rc.yml
