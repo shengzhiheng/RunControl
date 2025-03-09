@@ -7,5 +7,6 @@ This is the main page of RC
 ```{toctree}
 :maxdepth: 2
 usage
+program_behavior
 api
 ```
