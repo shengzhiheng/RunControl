@@ -6,6 +6,7 @@ This is the main page of RC
 
 ```{toctree}
 :maxdepth: 2
+
 index
 usage
 api
