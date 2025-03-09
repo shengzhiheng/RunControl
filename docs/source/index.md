@@ -5,6 +5,6 @@ This is the main page of RC
 ## Contents
 
 .. toctree::
-
+   index
    usage
    api
