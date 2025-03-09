@@ -20,14 +20,8 @@ extensions = [
     'sphinx.ext.intersphinx',
 ]
 
-# # fake install packages not available in conda/pip
-# autodoc_mock_imports = [
-#     "red_caen",     # or whatever the name is for the Python extension that depends on CAENComm
-#     "CAENComm",     # if you import it in Python
-#     "CAENDigitizer",
-#     "CAENVME",
-#     "CAENUSB",
-# ]
+# Set each section is a chapter in pdf file
+latex_toplevel_sectioning = 'chapter'
 
 source_suffix = {
     '.rst': 'restructuredtext',
