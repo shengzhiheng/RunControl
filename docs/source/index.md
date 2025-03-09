@@ -4,7 +4,10 @@ This is the main page of RC
 
 ## Contents
 
-.. toctree::
-   index
-   usage
-   api
+```{toctree}
+:maxdepth: 2
+:index:
+index
+usage
+api
+```
