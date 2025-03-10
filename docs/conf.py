@@ -27,6 +27,8 @@ source_suffix = {
     '.md': 'markdown',
 }
 
+autodoc_mock_imports = ['red_caen']
+
 root_doc = 'index'
 
 # Set each section is a chapter in pdf file
