@@ -33,6 +33,7 @@ root_doc = 'index'
 latex_toplevel_sectioning = 'chapter'
 
 sys.path.insert(0, os.path.abspath(".."))
+print("Current sys.path:", sys.path)
 
 # Remove blank pages in pdf file
 latex_elements = {
