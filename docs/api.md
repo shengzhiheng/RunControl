@@ -1,6 +1,6 @@
 # API
 
-```{autoclass} rc.MainWindow
+```{autoclass} runcontrol.rc.MainWindow
 :members:
 :undoc-members:
 :show-inheritance:
