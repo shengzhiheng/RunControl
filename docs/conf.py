@@ -36,6 +36,7 @@ sys.path.insert(0, os.path.abspath(".."))
 print("Current sys.path:", sys.path)
 
 # Generate .py files from .ui files
+ui_dir = os.path.abspath("../ui") 
 for ui_file in os.listdir(ui_dir):
     if ui_file.endswith(".ui"):
         ui_path = os.path.join(ui_dir, ui_file)
