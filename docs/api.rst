@@ -1,7 +1,7 @@
 API
 =====
 
-.. autoclass::rc.MainWindow
+.. autoclass:: rc.MainWindow
    :toctree: generated
    :members: 
    :undoc-members:
