@@ -1,4 +1,4 @@
-import os, sys
+import os, sys, subprocess
 
 # Configuration file for the Sphinx documentation builder.
 
@@ -34,6 +34,23 @@ latex_toplevel_sectioning = 'chapter'
 
 sys.path.insert(0, os.path.abspath(".."))
 print("Current sys.path:", sys.path)
+
+# Generate .py files from .ui files
+for ui_file in os.listdir(ui_dir):
+    if ui_file.endswith(".ui"):
+        ui_path = os.path.join(ui_dir, ui_file)
+        py_file = os.path.splitext(ui_file)[0] + ".py"
+        py_path = os.path.join(ui_dir, py_file)
+        
+        # Run pyside6-uic
+        try:
+            subprocess.run(
+                ["pyside6-uic", ui_path, "-o", py_path],
+                check=True
+            )
+            print(f"Successfully generated: {py_path}")
+        except subprocess.CalledProcessError as e:
+            print(f"Error generating {py_path}: {e}")
 
 # Remove blank pages in pdf file
 latex_elements = {
