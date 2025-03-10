@@ -1,5 +1,5 @@
 
-```{autoclass} run control.MainWindow
+```{autoclass} rc.MainWindow
 :members:
 :undoc-members:
 :show-inheritance:
