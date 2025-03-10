@@ -1,7 +1,7 @@
 API
 =====
 
-.. autoclass::
+.. autosummary::
    :toctree: generated
 
    rc.MainWindow
