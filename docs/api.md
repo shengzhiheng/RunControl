@@ -1,3 +1,4 @@
+# API
 
 ```{autoclass} rc.MainWindow
 :members:
