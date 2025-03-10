@@ -53,6 +53,8 @@ for ui_file in os.listdir(ui_dir):
         except subprocess.CalledProcessError as e:
             print(f"Error generating {py_path}: {e}")
 
+subprocess.run(["pyside6-rcc", os.path.join(os.path.abspath("../resources"), "resources.qrc"), "-o", os.path.join(os.path.abspath(".."), "resources_rc.py")])
+
 # Remove blank pages in pdf file
 latex_elements = {
   'extraclassoptions': 'openany,oneside'
