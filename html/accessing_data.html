@@ -1,0 +1,145 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessing Data &mdash; SBC Run Control 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SBC Run Control
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_format.html">Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBC Run Control</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Accessing Data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/accessing_data.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="accessing-data">
+<h1>Accessing Data<a class="headerlink" href="#accessing-data" title="Link to this heading"></a></h1>
+<section id="mysql-database">
+<h2>MySQL Database<a class="headerlink" href="#mysql-database" title="Link to this heading"></a></h2>
+<p>The MySQL database is running on the slow control computer (<code class="docutils literal notranslate"><span class="pre">sbcslowcontrol.fnal.gov</span></code>, <code class="docutils literal notranslate"><span class="pre">131.225.192.195</span></code>) in MINOS. This is where the data from PLC and run control are saved to. The database is also periodically mirrored to the mirror computer (<code class="docutils literal notranslate"><span class="pre">sbcmirror.fnal.gov</span></code>, <code class="docutils literal notranslate"><span class="pre">131.225.56.245</span></code>) on the 6th floor of Wilson. Since slow control is also responsible for the graphical interface for live monitoring of the detector, and that it’s also the source of truth of data, it is preferred that everyone access the data on the mirror machine if possible.</p>
+<section id="linux-and-maybe-macos">
+<h3>Linux (and maybe MacOS?)<a class="headerlink" href="#linux-and-maybe-macos" title="Link to this heading"></a></h3>
+<p>In a terminal, connect to slow control machine by running <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">-L</span> <span class="pre">[port]:sbcslowcontrol.fnal.gov:3306</span> <span class="pre">hep&#64;sbcslowcontrol.fnal.gov</span></code>. Use 3306 for <code class="docutils literal notranslate"><span class="pre">[port]</span></code>, if there’s no MySQL server running on local machine. Otherwise just choose an open port. This forwards the 3306 port on remote machine to <code class="docutils literal notranslate"><span class="pre">[port]</span></code> on local machine.</p>
+<p>If using <code class="docutils literal notranslate"><span class="pre">~/.ssh/config</span></code>, create an entry of similar to the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Host<span class="w"> </span>slowcontrol
+HostName<span class="w"> </span>sbcslowcontrol.fnal.gov
+User<span class="w"> </span>hep
+Port<span class="w"> </span><span class="m">22</span>
+LocalForward<span class="w"> </span><span class="m">3306</span><span class="w"> </span>sbcslowcontrol.fnal.gov:3306
+AddressFamily<span class="w"> </span>inet<span class="w">  </span><span class="c1"># use IPv4</span>
+</pre></div>
+</div>
+<p>Then run <code class="docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">slowcontrol</span></code> in command line to connect.</p>
+</section>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading"></a></h3>
+<p>In PuTTY, create a session for slow control. Host Name should be <code class="docutils literal notranslate"><span class="pre">hep&#64;sbcslowcontrol.fnal.gov</span></code>. Port should be <code class="docutils literal notranslate"><span class="pre">22</span></code>. Connection type should be <code class="docutils literal notranslate"><span class="pre">SSH</span></code>. Go to <code class="docutils literal notranslate"><span class="pre">Connection</span> <span class="pre">-&gt;</span> <span class="pre">SSH</span> <span class="pre">-&gt;</span> <span class="pre">Tunnels</span></code>, and add a new port forwarding. Use <code class="docutils literal notranslate"><span class="pre">3306</span></code> for source port if no MySQL server is running on the local machine. If there is, choose an open port. Use <code class="docutils literal notranslate"><span class="pre">sbcslowcontrol.fnal.gov:3306</span></code> for destination. Add the port forwarding setting. Save the session and open the connection.</p>
+</section>
+<section id="using-command-line">
+<h3>Using command line<a class="headerlink" href="#using-command-line" title="Link to this heading"></a></h3>
+<p>The easiest way for accessing the MySQL database is through command line. After and SSH connection is established, execute <code class="docutils literal notranslate"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">[user]</span> <span class="pre">-p</span></code> to open up the MySQL CLI interface, where <code class="docutils literal notranslate"><span class="pre">[user]</span></code> is the MySQL user. The user needs to be allowed access from <code class="docutils literal notranslate"><span class="pre">localhost</span></code>.</p>
+</section>
+<section id="using-gui-software">
+<h3>Using GUI software<a class="headerlink" href="#using-gui-software" title="Link to this heading"></a></h3>
+<p>There’s a wide selection of MySQL graphical softwares available. Two free and cross-platform options are <a class="reference external" href="https://www.mysql.com/products/workbench/">MySQL Workbench</a> and <a class="reference external" href="https://dbeaver.io/">DBeaver</a>. I’m going to use MySQL Workbench as example. <br />
+On the main page, add a new item in “MySQL Connections”. Or on the menu bar, go to <code class="docutils literal notranslate"><span class="pre">Database</span> <span class="pre">-&gt;</span> <span class="pre">Connect</span> <span class="pre">to</span> <span class="pre">Database</span></code>. Use the following settings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Connection<span class="w"> </span>Type:<span class="w"> </span>Standard<span class="w"> </span><span class="o">(</span>TCP/IP<span class="o">)</span>
+Hostname:<span class="w"> </span><span class="m">127</span>.0.0.1
+Port:<span class="w"> </span><span class="m">3306</span>
+Username:<span class="w"> </span><span class="o">[</span>user<span class="o">]</span><span class="w">  </span><span class="c1"># MySQL user allowed on sbcslowcontrol.fnal.gov, and not only localhost</span>
+</pre></div>
+</div>
+<p>Then open connection, and the SQL editor should be open. Now we can run some queries and get the results.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025 SBC Collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Description &mdash; SBC Run Control 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Data Formats" href="data_format.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SBC Run Control
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Project Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#project-structure">Project Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-states">Run States</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#preparing">Preparing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#idle">Idle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-run">Starting Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stopping-run">Stopping Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-event">Starting Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#stopping-event">Stopping Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#active">Active</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#modules">Modules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ui-loader">UI Loader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#config">Config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ni-usb">NI USB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arduinos">Arduinos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#writer">Writer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sql">SQL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cameras">Cameras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caen">CAEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sipm-amp">SiPM Amp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acoustics">Acoustics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data_format.html">Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBC Run Control</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Project Description</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/project_description.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="project-description">
+<h1>Project Description<a class="headerlink" href="#project-description" title="Link to this heading"></a></h1>
+<p>This documentation describes the general way the run control program works, and what the main thread and the modules do at each state.</p>
+<section id="project-structure">
+<h2>Project Structure<a class="headerlink" href="#project-structure" title="Link to this heading"></a></h2>
+<p>This documentation provides a short explanation of the different folders and files in this repository. Below is the
+structure of this repository:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.
+├── README.md
+├── config.json
+├── dependencies
+│   ├── ArduinoSketches
+│   │   ├── README.md
+│   │   ├── clock/
+│   │   ├── ln2autofill_rtd/
+│   │   ├── ln2autofill_scale/
+│   │   ├── position/
+│   │   ├── trigger/
+│   │   └── uti-docs/
+│   ├── NI_USB6501/
+│   └── conda_rc.yml
+├── docs
+│   ├── api.rst
+│   ├── conf.py
+│   ├── data_format.md
+│   ├── dependencies.md
+│   ├── images/
+│   ├── index.md
+│   ├── program_behavior.md
+│   ├── project_structure.md
+│   ├── requirements.txt
+│   └── usage.rst
+├── init.sh
+├── rc.py
+├── resources/
+├── src
+│   ├── acoustics.py
+│   ├── arduinos.py
+│   ├── caen.py
+│   ├── cameras.py
+│   ├── config.py
+│   ├── niusb.py
+│   ├── sipm_amp.py
+│   ├── sql.py
+│   ├── ui_loader.py
+│   └── writer.py
+└── ui
+    ├── custom_widgets.py
+    ├── logwindow.ui
+    ├── mainwindow.ui
+    ├── quitdialog.ui
+    └── settingswindow.ui
+</pre></div>
+</div>
+</section>
+<section id="run-states">
+<h2>Run States<a class="headerlink" href="#run-states" title="Link to this heading"></a></h2>
+<p>The run control program uses multithreading to avoid freezing the GUI when things are happening in the background. Specifically, it has one main thread and a thread for each module. For the secondary threads, there is one worker per thread. The threads communicate with each other via <code class="docutils literal notranslate"><span class="pre">Signal</span></code> and <code class="docutils literal notranslate"><span class="pre">Slot</span></code>.<br />
+At the Start of a run, the main thread will send out a <code class="docutils literal notranslate"><span class="pre">run_starting</span></code> signal. This signal is connected to the <code class="docutils literal notranslate"><span class="pre">start_run</span></code> method of each module worker. (TODO: then the main thread waits for all modules to return a signal that they are ready to go active.) A similar process happens at every state transition.
+There are seven states, which are <code class="docutils literal notranslate"><span class="pre">preparing</span></code>, <code class="docutils literal notranslate"><span class="pre">idle</span></code>. <code class="docutils literal notranslate"><span class="pre">starting_run</span></code>, <code class="docutils literal notranslate"><span class="pre">stopping_run</span></code>, <code class="docutils literal notranslate"><span class="pre">starting_event</span></code>, <code class="docutils literal notranslate"><span class="pre">stopping_event</span></code>, <code class="docutils literal notranslate"><span class="pre">active</span></code>.</p>
+<section id="preparing">
+<h3>Preparing<a class="headerlink" href="#preparing" title="Link to this heading"></a></h3>
+<p>When the run control program starts, it will first enter the <code class="docutils literal notranslate"><span class="pre">preparing</span></code> state. In this state it will instantiate all the secondary threads and workers, and load the GUI with initial information.</p>
+<ul class="simple">
+<li><p>Arduinos: Flash sketch to board?</p></li>
+<li><p>SiPM amp: run IV curve if no data for today?</p></li>
+</ul>
+</section>
+<section id="idle">
+<h3>Idle<a class="headerlink" href="#idle" title="Link to this heading"></a></h3>
+<p>After the <code class="docutils literal notranslate"><span class="pre">preparing</span></code> state ends, it will enter the <code class="docutils literal notranslate"><span class="pre">idle</span></code> state. The “Start Run” button will be available to start a new run, and any changes to the configuration can be applied immediately.</p>
+</section>
+<section id="starting-run">
+<h3>Starting Run<a class="headerlink" href="#starting-run" title="Link to this heading"></a></h3>
+<p>After the “Start Run” button is pressed, the program will enter this state. When all modules are ready, it will enter into <code class="docutils literal notranslate"><span class="pre">starting_event</span></code> state.</p>
+<ul class="simple">
+<li><p>GUI: set run ID, event ID, event livetime, run livetime</p></li>
+<li><p>Writer: create run folder. Save current config file. Create log file and add to logger. Initialize run_data variable.</p></li>
+<li><p>SiPM amp: bias SiPMs</p></li>
+<li><p>Config: save current config to run folder.</p></li>
+</ul>
+</section>
+<section id="stopping-run">
+<h3>Stopping Run<a class="headerlink" href="#stopping-run" title="Link to this heading"></a></h3>
+<p>This is the state then the run is stopping.</p>
+<ul class="simple">
+<li><p>SiPM amp: unbias SiPM</p></li>
+<li><p>Write run data into SQL RunData table.</p></li>
+</ul>
+</section>
+<section id="starting-event">
+<h3>Starting Event<a class="headerlink" href="#starting-event" title="Link to this heading"></a></h3>
+<p>When the <code class="docutils literal notranslate"><span class="pre">starting_run</span></code> state ends, or then <code class="docutils literal notranslate"><span class="pre">stopping_event</span></code> state ends, and neither “Stop Run” button is pressed, or maximum number of events is reached, the program will start a new event. It will send out a <code class="docutils literal notranslate"><span class="pre">Signal</span></code> to all modules. When all modules are ready, it will enter <code class="docutils literal notranslate"><span class="pre">active</span></code> state.</p>
+<ul class="simple">
+<li><p>GUI: set event ID and event livetime display.</p></li>
+<li><p>Writer: Create folder for the event.</p></li>
+<li><p>Camera: Send config file. Start <code class="docutils literal notranslate"><span class="pre">imdaq</span></code> script.</p></li>
+<li><p>NIUSB: set input/output pins. Sends out <code class="docutils literal notranslate"><span class="pre">trig_reset</span></code> signal. Set outputs to camera.</p></li>
+<li><p>CAEN: save config file. Start data acquisition.</p></li>
+<li><p>Acoustics: save config file. Start data acquisition.</p></li>
+</ul>
+</section>
+<section id="stopping-event">
+<h3>Stopping Event<a class="headerlink" href="#stopping-event" title="Link to this heading"></a></h3>
+<p>This is the state when the event is stopping. A <code class="docutils literal notranslate"><span class="pre">Signal</span></code> is sent to all modules to save data for the event. After the state is finished, it will enter into either <code class="docutils literal notranslate"><span class="pre">starting_event</span></code> to start a new event, or <code class="docutils literal notranslate"><span class="pre">stopping_run</span></code> to end the run. That decision will depend on if the “Stop Run” button is pressed, or maximum number of events is reached.</p>
+<ul class="simple">
+<li><p>Writer: save event binary data.</p></li>
+<li><p>Cameras: Take remaining images. Save images, info table and log into event folder.</p></li>
+<li><p>CAEN: stop data acquisition, save data to event folder.</p></li>
+<li><p>Acoustics: save data to event folder.</p></li>
+</ul>
+</section>
+<section id="active">
+<h3>Active<a class="headerlink" href="#active" title="Link to this heading"></a></h3>
+<p>All modules in this state will be actively taking data in buffer, and waiting for a trigger. When a trigger is received by run control, it will enter into <code class="docutils literal notranslate"><span class="pre">stopping_event</span></code> state.
+GUI: Start event timer. Update event livetime and run livetime. Check for max event time to send out trigger.</p>
+</section>
+</section>
+<section id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading"></a></h2>
+<p>The run control program is organized in modules. The main module is responsible for the graphical interface. All other modules are launched in their own threads. Each module is defined by a python script in the <code class="docutils literal notranslate"><span class="pre">src/</span></code> folder, and one or more instances of a module may be created. For example, there are three camera threads, each controlling a camera RPi. A thread is created at the start of the program for each module, and the module class is instantiated into a worker inside that thread. The communication between modules and the main thread is handled by PySide6 signals and threads, and there is also limited number of communication between modules directly. The threads live across events and runs, and are only killed when run control is closed.</p>
+<section id="ui-loader">
+<h3>UI Loader<a class="headerlink" href="#ui-loader" title="Link to this heading"></a></h3>
+<p>This modules contains the classes for settings window and log window, as well as helper classes. The settings window is the central place where the user can set configuration for both run control and all modules. Every field in <code class="docutils literal notranslate"><span class="pre">config.json</span></code> can be edited from here. The log window display all logs generated by run control. Note that logs produced by child processes run from run control will not be included here, even they may appear in the terminal. These include camera RPi logs and SiPM amp outputs.</p>
+</section>
+<section id="config">
+<h3>Config<a class="headerlink" href="#config" title="Link to this heading"></a></h3>
+<p>The main job of the config module is to translate between the fields in the settings window, the config dictionary in python, and the <code class="docutils literal notranslate"><span class="pre">config.json</span></code> file. When run control starts, it reads configuration from <code class="docutils literal notranslate"><span class="pre">config.json</span></code> and stores it in a dictionary. When settings window is opened, it fills all of the fields in the GUI from the dictionary. When “Apply” button is clicked in settings window, the dictioanry is updated using the fields in the GUI. When “Save” button is clicked, the dictionary is updated using the GUI, and then the <code class="docutils literal notranslate"><span class="pre">config.json</span></code> is also overwritten using the new dictionary.<br />
+When a run starts, it saves a copy of the config dictionary for the run, so any subsequent changes in the settings window when the run is active won’t affect the current run. It then saves the run config into a <code class="docutils literal notranslate"><span class="pre">config.json</span></code> in the run data folder, and then updates the config files for cameras and arduinos.</p>
+</section>
+<section id="ni-usb">
+<h3>NI USB<a class="headerlink" href="#ni-usb" title="Link to this heading"></a></h3>
+<p>Using the third party custom driver, this modules handles all digitital input/output requests from run control to the NI USB6501 device. It defines a name and direction for each of the pins, and handles reading from and writing to the pins. Specifically, it handles communication to and from the trigger arduino and the camera RPis.</p>
+</section>
+<section id="arduinos">
+<h3>Arduinos<a class="headerlink" href="#arduinos" title="Link to this heading"></a></h3>
+<p>At the start of each run, the Arduinos module checks that the build on the Arduino is up to date. It generates a zip file containing the <code class="docutils literal notranslate"><span class="pre">.ino</span></code> C++ file as well as wll supporting files, including the <code class="docutils literal notranslate"><span class="pre">.json</span></code> configuration file. Then it compares the zip file to the existing zip file in the build folder. If that zip file doesn’t exist, or if they are different, the module will compile the code and upload to the corresponding Arduino, while overwriting the zip file with the newer version. If the two zip files are the same, then nothing will happen to prevent unnecessary writes to the EEPROM.</p>
+</section>
+<section id="writer">
+<h3>Writer<a class="headerlink" href="#writer" title="Link to this heading"></a></h3>
+</section>
+<section id="sql">
+<h3>SQL<a class="headerlink" href="#sql" title="Link to this heading"></a></h3>
+</section>
+<section id="cameras">
+<h3>Cameras<a class="headerlink" href="#cameras" title="Link to this heading"></a></h3>
+</section>
+<section id="caen">
+<h3>CAEN<a class="headerlink" href="#caen" title="Link to this heading"></a></h3>
+</section>
+<section id="sipm-amp">
+<h3>SiPM Amp<a class="headerlink" href="#sipm-amp" title="Link to this heading"></a></h3>
+</section>
+<section id="acoustics">
+<h3>Acoustics<a class="headerlink" href="#acoustics" title="Link to this heading"></a></h3>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="data_format.html" class="btn btn-neutral float-right" title="Data Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025 SBC Collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

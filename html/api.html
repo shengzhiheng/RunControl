@@ -1,0 +1,574 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API &mdash; SBC Run Control 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Documentation" href="documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SBC Run Control
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_format.html">Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#src.acoustics.Acoustics"><code class="docutils literal notranslate"><span class="pre">Acoustics</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.event_started"><code class="docutils literal notranslate"><span class="pre">Acoustics.event_started</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.event_stopped"><code class="docutils literal notranslate"><span class="pre">Acoustics.event_stopped</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.periodic_task"><code class="docutils literal notranslate"><span class="pre">Acoustics.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.run"><code class="docutils literal notranslate"><span class="pre">Acoustics.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.save_config"><code class="docutils literal notranslate"><span class="pre">Acoustics.save_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.start_event"><code class="docutils literal notranslate"><span class="pre">Acoustics.start_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.start_gage"><code class="docutils literal notranslate"><span class="pre">Acoustics.start_gage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.acoustics.Acoustics.stop_event"><code class="docutils literal notranslate"><span class="pre">Acoustics.stop_event()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.arduinos.Arduino"><code class="docutils literal notranslate"><span class="pre">Arduino</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.arduino_port_map"><code class="docutils literal notranslate"><span class="pre">Arduino.arduino_port_map</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.check_arduino"><code class="docutils literal notranslate"><span class="pre">Arduino.check_arduino()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.latch_pins"><code class="docutils literal notranslate"><span class="pre">Arduino.latch_pins</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.periodic_task"><code class="docutils literal notranslate"><span class="pre">Arduino.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.reverse_port_map"><code class="docutils literal notranslate"><span class="pre">Arduino.reverse_port_map</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.run"><code class="docutils literal notranslate"><span class="pre">Arduino.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.sketch_uploaded"><code class="docutils literal notranslate"><span class="pre">Arduino.sketch_uploaded</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.arduinos.Arduino.upload_sketch"><code class="docutils literal notranslate"><span class="pre">Arduino.upload_sketch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.cameras.Camera"><code class="docutils literal notranslate"><span class="pre">Camera</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.camera_closed"><code class="docutils literal notranslate"><span class="pre">Camera.camera_closed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.camera_connected"><code class="docutils literal notranslate"><span class="pre">Camera.camera_connected</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.camera_started"><code class="docutils literal notranslate"><span class="pre">Camera.camera_started</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.periodic_task"><code class="docutils literal notranslate"><span class="pre">Camera.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.run"><code class="docutils literal notranslate"><span class="pre">Camera.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.start_camera"><code class="docutils literal notranslate"><span class="pre">Camera.start_camera()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.stop_camera"><code class="docutils literal notranslate"><span class="pre">Camera.stop_camera()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.cameras.Camera.test_rpi"><code class="docutils literal notranslate"><span class="pre">Camera.test_rpi()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.config.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.apply_config"><code class="docutils literal notranslate"><span class="pre">Config.apply_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.load_config"><code class="docutils literal notranslate"><span class="pre">Config.load_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.load_config_from_file"><code class="docutils literal notranslate"><span class="pre">Config.load_config_from_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.load_config_to_window"><code class="docutils literal notranslate"><span class="pre">Config.load_config_to_window()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.periodic_task"><code class="docutils literal notranslate"><span class="pre">Config.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.run_config_saved"><code class="docutils literal notranslate"><span class="pre">Config.run_config_saved</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.save_config"><code class="docutils literal notranslate"><span class="pre">Config.save_config()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.save_config_from_ui"><code class="docutils literal notranslate"><span class="pre">Config.save_config_from_ui()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.start_event"><code class="docutils literal notranslate"><span class="pre">Config.start_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.start_run"><code class="docutils literal notranslate"><span class="pre">Config.start_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.stop_run"><code class="docutils literal notranslate"><span class="pre">Config.stop_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.config.Config.update_dict"><code class="docutils literal notranslate"><span class="pre">Config.update_dict()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.sipm_amp.SiPMAmp"><code class="docutils literal notranslate"><span class="pre">SiPMAmp</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.adc_mapping"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.adc_mapping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.bias_sipm"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.bias_sipm()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.check_iv_interval"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.check_iv_interval()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.daq_mapping"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.daq_mapping</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.exec_commands"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.exec_commands()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.periodic_task"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.run"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.run_iv_curve"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.run_iv_curve()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.sipm_biased"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.sipm_biased</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.sipm_unbiased"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.sipm_unbiased</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.start_run"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.start_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.test_sipm_amp"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.test_sipm_amp()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sipm_amp.SiPMAmp.unbias_sipm"><code class="docutils literal notranslate"><span class="pre">SiPMAmp.unbias_sipm()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.sql.SQL"><code class="docutils literal notranslate"><span class="pre">SQL</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.close_connection"><code class="docutils literal notranslate"><span class="pre">SQL.close_connection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.connect_and_execute"><code class="docutils literal notranslate"><span class="pre">SQL.connect_and_execute()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.deleteLater"><code class="docutils literal notranslate"><span class="pre">SQL.deleteLater()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.event_stopped"><code class="docutils literal notranslate"><span class="pre">SQL.event_stopped</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.periodic_task"><code class="docutils literal notranslate"><span class="pre">SQL.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.retrieve_run_id"><code class="docutils literal notranslate"><span class="pre">SQL.retrieve_run_id()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.run"><code class="docutils literal notranslate"><span class="pre">SQL.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.run_started"><code class="docutils literal notranslate"><span class="pre">SQL.run_started</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.run_stopped"><code class="docutils literal notranslate"><span class="pre">SQL.run_stopped</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.setup_connection"><code class="docutils literal notranslate"><span class="pre">SQL.setup_connection()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.start_run"><code class="docutils literal notranslate"><span class="pre">SQL.start_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.stop_event"><code class="docutils literal notranslate"><span class="pre">SQL.stop_event()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.sql.SQL.stop_run"><code class="docutils literal notranslate"><span class="pre">SQL.stop_run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#src.writer.Writer"><code class="docutils literal notranslate"><span class="pre">Writer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#src.writer.Writer.event_data_saved"><code class="docutils literal notranslate"><span class="pre">Writer.event_data_saved</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.writer.Writer.periodic_task"><code class="docutils literal notranslate"><span class="pre">Writer.periodic_task()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.writer.Writer.run"><code class="docutils literal notranslate"><span class="pre">Writer.run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#src.writer.Writer.write_event_data"><code class="docutils literal notranslate"><span class="pre">Writer.write_event_data()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBC Run Control</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>API<a class="headerlink" href="#api" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.acoustics.</span></span><span class="sig-name descname"><span class="pre">Acoustics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.event_started">
+<span class="sig-name descname"><span class="pre">event_started</span></span><a class="headerlink" href="#src.acoustics.Acoustics.event_started" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.event_stopped">
+<span class="sig-name descname"><span class="pre">event_stopped</span></span><a class="headerlink" href="#src.acoustics.Acoustics.event_stopped" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.save_config">
+<span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics.save_config" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.start_event">
+<span class="sig-name descname"><span class="pre">start_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics.start_event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.start_gage">
+<span class="sig-name descname"><span class="pre">start_gage</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics.start_gage" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.acoustics.Acoustics.stop_event">
+<span class="sig-name descname"><span class="pre">stop_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.acoustics.Acoustics.stop_event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.arduinos.Arduino">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.arduinos.</span></span><span class="sig-name descname"><span class="pre">Arduino</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arduino</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.arduinos.Arduino" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.arduino_port_map">
+<span class="sig-name descname"><span class="pre">arduino_port_map</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">'E0',</span> <span class="pre">1:</span> <span class="pre">'E1',</span> <span class="pre">2:</span> <span class="pre">'E4',</span> <span class="pre">3:</span> <span class="pre">'E5',</span> <span class="pre">4:</span> <span class="pre">'G5',</span> <span class="pre">5:</span> <span class="pre">'E3',</span> <span class="pre">6:</span> <span class="pre">'H3',</span> <span class="pre">7:</span> <span class="pre">'H4',</span> <span class="pre">8:</span> <span class="pre">'H5',</span> <span class="pre">9:</span> <span class="pre">'H6',</span> <span class="pre">10:</span> <span class="pre">'B4',</span> <span class="pre">11:</span> <span class="pre">'B5',</span> <span class="pre">12:</span> <span class="pre">'B6',</span> <span class="pre">13:</span> <span class="pre">'B7',</span> <span class="pre">14:</span> <span class="pre">'J1',</span> <span class="pre">15:</span> <span class="pre">'J0',</span> <span class="pre">16:</span> <span class="pre">'H1',</span> <span class="pre">17:</span> <span class="pre">'H0',</span> <span class="pre">18:</span> <span class="pre">'D3',</span> <span class="pre">19:</span> <span class="pre">'D2',</span> <span class="pre">20:</span> <span class="pre">'D1',</span> <span class="pre">21:</span> <span class="pre">'D0',</span> <span class="pre">22:</span> <span class="pre">'A0',</span> <span class="pre">23:</span> <span class="pre">'A1',</span> <span class="pre">24:</span> <span class="pre">'A2',</span> <span class="pre">25:</span> <span class="pre">'A3',</span> <span class="pre">26:</span> <span class="pre">'A4',</span> <span class="pre">27:</span> <span class="pre">'A5',</span> <span class="pre">28:</span> <span class="pre">'A6',</span> <span class="pre">29:</span> <span class="pre">'A7',</span> <span class="pre">30:</span> <span class="pre">'C7',</span> <span class="pre">31:</span> <span class="pre">'C6',</span> <span class="pre">32:</span> <span class="pre">'C5',</span> <span class="pre">33:</span> <span class="pre">'C4',</span> <span class="pre">34:</span> <span class="pre">'C3',</span> <span class="pre">35:</span> <span class="pre">'C2',</span> <span class="pre">36:</span> <span class="pre">'C1',</span> <span class="pre">37:</span> <span class="pre">'C0',</span> <span class="pre">38:</span> <span class="pre">'D7',</span> <span class="pre">39:</span> <span class="pre">'G2',</span> <span class="pre">40:</span> <span class="pre">'G1',</span> <span class="pre">41:</span> <span class="pre">'G0',</span> <span class="pre">42:</span> <span class="pre">'L7',</span> <span class="pre">43:</span> <span class="pre">'L6',</span> <span class="pre">44:</span> <span class="pre">'L5',</span> <span class="pre">45:</span> <span class="pre">'L4',</span> <span class="pre">46:</span> <span class="pre">'L3',</span> <span class="pre">47:</span> <span class="pre">'L2',</span> <span class="pre">48:</span> <span class="pre">'L1',</span> <span class="pre">49:</span> <span class="pre">'L0',</span> <span class="pre">50:</span> <span class="pre">'B3',</span> <span class="pre">51:</span> <span class="pre">'B2',</span> <span class="pre">52:</span> <span class="pre">'B1',</span> <span class="pre">53:</span> <span class="pre">'B0'}</span></em><a class="headerlink" href="#src.arduinos.Arduino.arduino_port_map" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.check_arduino">
+<span class="sig-name descname"><span class="pre">check_arduino</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.arduinos.Arduino.check_arduino" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.latch_pins">
+<span class="sig-name descname"><span class="pre">latch_pins</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">5,</span> <span class="pre">2,</span> <span class="pre">3,</span> <span class="pre">17,</span> <span class="pre">16,</span> <span class="pre">6,</span> <span class="pre">7,</span> <span class="pre">8,</span> <span class="pre">9,</span> <span class="pre">15,</span> <span class="pre">14]</span></em><a class="headerlink" href="#src.arduinos.Arduino.latch_pins" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.arduinos.Arduino.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.reverse_port_map">
+<span class="sig-name descname"><span class="pre">reverse_port_map</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#src.arduinos.Arduino.reverse_port_map" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.arduinos.Arduino.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.sketch_uploaded">
+<span class="sig-name descname"><span class="pre">sketch_uploaded</span></span><a class="headerlink" href="#src.arduinos.Arduino.sketch_uploaded" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.arduinos.Arduino.upload_sketch">
+<span class="sig-name descname"><span class="pre">upload_sketch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.arduinos.Arduino.upload_sketch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.cameras.Camera">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.cameras.</span></span><span class="sig-name descname"><span class="pre">Camera</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cam_name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.cameras.Camera" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.cameras.Camera.camera_closed">
+<span class="sig-name descname"><span class="pre">camera_closed</span></span><a class="headerlink" href="#src.cameras.Camera.camera_closed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.cameras.Camera.camera_connected">
+<span class="sig-name descname"><span class="pre">camera_connected</span></span><a class="headerlink" href="#src.cameras.Camera.camera_connected" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.cameras.Camera.camera_started">
+<span class="sig-name descname"><span class="pre">camera_started</span></span><a class="headerlink" href="#src.cameras.Camera.camera_started" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.cameras.Camera.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.cameras.Camera.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.cameras.Camera.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.cameras.Camera.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.cameras.Camera.start_camera">
+<span class="sig-name descname"><span class="pre">start_camera</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.cameras.Camera.start_camera" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.cameras.Camera.stop_camera">
+<span class="sig-name descname"><span class="pre">stop_camera</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.cameras.Camera.stop_camera" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.cameras.Camera.test_rpi">
+<span class="sig-name descname"><span class="pre">test_rpi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.cameras.Camera.test_rpi" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.config.Config">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.config.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config" title="Link to this definition"></a></dt>
+<dd><p>Class object to load and save run config files</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.apply_config">
+<span class="sig-name descname"><span class="pre">apply_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ui</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.apply_config" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.load_config">
+<span class="sig-name descname"><span class="pre">load_config</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.load_config" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.load_config_from_file">
+<span class="sig-name descname"><span class="pre">load_config_from_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ui</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.load_config_from_file" title="Link to this definition"></a></dt>
+<dd><p>Updates the config dict with new json dict. The new json has to follow the same structure,
+but doesn’t need to have all the values</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.load_config_to_window">
+<span class="sig-name descname"><span class="pre">load_config_to_window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ui</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.load_config_to_window" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.config.Config.run_config_saved">
+<span class="sig-name descname"><span class="pre">run_config_saved</span></span><a class="headerlink" href="#src.config.Config.run_config_saved" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.save_config">
+<span class="sig-name descname"><span class="pre">save_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.save_config" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.save_config_from_ui">
+<span class="sig-name descname"><span class="pre">save_config_from_ui</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ui</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.save_config_from_ui" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.start_event">
+<span class="sig-name descname"><span class="pre">start_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.start_event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.start_run">
+<span class="sig-name descname"><span class="pre">start_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.start_run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.stop_run">
+<span class="sig-name descname"><span class="pre">stop_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.stop_run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.config.Config.update_dict">
+<span class="sig-name descname"><span class="pre">update_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">original</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.config.Config.update_dict" title="Link to this definition"></a></dt>
+<dd><p>recursive helper function to update config dictionary with new settings.
+Prevents overwriting keys in the same level that is written.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.sipm_amp.</span></span><span class="sig-name descname"><span class="pre">SiPMAmp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.adc_mapping">
+<span class="sig-name descname"><span class="pre">adc_mapping</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{1:</span> <span class="pre">'6</span> <span class="pre">0</span> <span class="pre">1',</span> <span class="pre">2:</span> <span class="pre">'6</span> <span class="pre">4</span> <span class="pre">5',</span> <span class="pre">3:</span> <span class="pre">'6</span> <span class="pre">6</span> <span class="pre">7',</span> <span class="pre">4:</span> <span class="pre">'6</span> <span class="pre">2</span> <span class="pre">3',</span> <span class="pre">5:</span> <span class="pre">'4</span> <span class="pre">0</span> <span class="pre">1',</span> <span class="pre">6:</span> <span class="pre">'4</span> <span class="pre">4</span> <span class="pre">5',</span> <span class="pre">7:</span> <span class="pre">'4</span> <span class="pre">6</span> <span class="pre">7',</span> <span class="pre">8:</span> <span class="pre">'4</span> <span class="pre">2</span> <span class="pre">3',</span> <span class="pre">9:</span> <span class="pre">'3</span> <span class="pre">0</span> <span class="pre">1',</span> <span class="pre">10:</span> <span class="pre">'3</span> <span class="pre">4</span> <span class="pre">5',</span> <span class="pre">11:</span> <span class="pre">'3</span> <span class="pre">6</span> <span class="pre">7',</span> <span class="pre">12:</span> <span class="pre">'3</span> <span class="pre">2</span> <span class="pre">3',</span> <span class="pre">13:</span> <span class="pre">'1</span> <span class="pre">0</span> <span class="pre">1',</span> <span class="pre">14:</span> <span class="pre">'1</span> <span class="pre">4</span> <span class="pre">5',</span> <span class="pre">15:</span> <span class="pre">'1</span> <span class="pre">6</span> <span class="pre">7',</span> <span class="pre">16:</span> <span class="pre">'1</span> <span class="pre">2</span> <span class="pre">3'}</span></em><a class="headerlink" href="#src.sipm_amp.SiPMAmp.adc_mapping" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.bias_sipm">
+<span class="sig-name descname"><span class="pre">bias_sipm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.bias_sipm" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.check_iv_interval">
+<span class="sig-name descname"><span class="pre">check_iv_interval</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.check_iv_interval" title="Link to this definition"></a></dt>
+<dd><p>return the time stamp of last IV curve measurement</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.daq_mapping">
+<span class="sig-name descname"><span class="pre">daq_mapping</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{1:</span> <span class="pre">'5</span> <span class="pre">0',</span> <span class="pre">2:</span> <span class="pre">'5</span> <span class="pre">1',</span> <span class="pre">3:</span> <span class="pre">'5</span> <span class="pre">2',</span> <span class="pre">4:</span> <span class="pre">'5</span> <span class="pre">3',</span> <span class="pre">5:</span> <span class="pre">'5</span> <span class="pre">4',</span> <span class="pre">6:</span> <span class="pre">'5</span> <span class="pre">5',</span> <span class="pre">7:</span> <span class="pre">'5</span> <span class="pre">6',</span> <span class="pre">8:</span> <span class="pre">'5</span> <span class="pre">7',</span> <span class="pre">9:</span> <span class="pre">'2</span> <span class="pre">0',</span> <span class="pre">10:</span> <span class="pre">'2</span> <span class="pre">1',</span> <span class="pre">11:</span> <span class="pre">'2</span> <span class="pre">2',</span> <span class="pre">12:</span> <span class="pre">'2</span> <span class="pre">3',</span> <span class="pre">13:</span> <span class="pre">'2</span> <span class="pre">4',</span> <span class="pre">14:</span> <span class="pre">'2</span> <span class="pre">5',</span> <span class="pre">15:</span> <span class="pre">'2</span> <span class="pre">6',</span> <span class="pre">16:</span> <span class="pre">'2</span> <span class="pre">7'}</span></em><a class="headerlink" href="#src.sipm_amp.SiPMAmp.daq_mapping" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.exec_commands">
+<span class="sig-name descname"><span class="pre">exec_commands</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">commands</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.exec_commands" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.run_iv_curve">
+<span class="sig-name descname"><span class="pre">run_iv_curve</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.run_iv_curve" title="Link to this definition"></a></dt>
+<dd><p>tell the SiPM amplifier to do an IV curve measurement</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.sipm_biased">
+<span class="sig-name descname"><span class="pre">sipm_biased</span></span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.sipm_biased" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.sipm_unbiased">
+<span class="sig-name descname"><span class="pre">sipm_unbiased</span></span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.sipm_unbiased" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.start_run">
+<span class="sig-name descname"><span class="pre">start_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.start_run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.test_sipm_amp">
+<span class="sig-name descname"><span class="pre">test_sipm_amp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.test_sipm_amp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sipm_amp.SiPMAmp.unbias_sipm">
+<span class="sig-name descname"><span class="pre">unbias_sipm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sipm_amp.SiPMAmp.unbias_sipm" title="Link to this definition"></a></dt>
+<dd><p>if not enabled, try pinging the IP address
+if ping successes, still unbias. if not, quit
+ping with only 1 packet, with 1s timeout</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.sql.SQL">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.sql.</span></span><span class="sig-name descname"><span class="pre">SQL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL" title="Link to this definition"></a></dt>
+<dd><dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.close_connection">
+<span class="sig-name descname"><span class="pre">close_connection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.close_connection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.connect_and_execute">
+<span class="sig-name descname"><span class="pre">connect_and_execute</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">query</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.connect_and_execute" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.deleteLater">
+<span class="sig-name descname"><span class="pre">deleteLater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em>, <em class="sig-param"><span class="positional-only-separator o"><abbr title="Positional-only parameter separator (PEP 570)"><span class="pre">/</span></abbr></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a></span></span><a class="headerlink" href="#src.sql.SQL.deleteLater" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.sql.SQL.event_stopped">
+<span class="sig-name descname"><span class="pre">event_stopped</span></span><a class="headerlink" href="#src.sql.SQL.event_stopped" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.retrieve_run_id">
+<span class="sig-name descname"><span class="pre">retrieve_run_id</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.retrieve_run_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.sql.SQL.run_started">
+<span class="sig-name descname"><span class="pre">run_started</span></span><a class="headerlink" href="#src.sql.SQL.run_started" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="src.sql.SQL.run_stopped">
+<span class="sig-name descname"><span class="pre">run_stopped</span></span><a class="headerlink" href="#src.sql.SQL.run_stopped" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.setup_connection">
+<span class="sig-name descname"><span class="pre">setup_connection</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.setup_connection" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.start_run">
+<span class="sig-name descname"><span class="pre">start_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.start_run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.stop_event">
+<span class="sig-name descname"><span class="pre">stop_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.stop_event" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.sql.SQL.stop_run">
+<span class="sig-name descname"><span class="pre">stop_run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.sql.SQL.stop_run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="src.writer.Writer">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">src.writer.</span></span><span class="sig-name descname"><span class="pre">Writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mainwindow</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.writer.Writer" title="Link to this definition"></a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="src.writer.Writer.event_data_saved">
+<span class="sig-name descname"><span class="pre">event_data_saved</span></span><a class="headerlink" href="#src.writer.Writer.event_data_saved" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.writer.Writer.periodic_task">
+<span class="sig-name descname"><span class="pre">periodic_task</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.writer.Writer.periodic_task" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.writer.Writer.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#src.writer.Writer.run" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="src.writer.Writer.write_event_data">
+<span class="sig-name descname"><span class="pre">write_event_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">last_trigger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.writer.Writer.write_event_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="documentation.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025 SBC Collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

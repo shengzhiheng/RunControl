@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; SBC Run Control 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Description" href="project_description.html" />
+    <link rel="prev" title="SBC Run Control" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SBC Run Control
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-dependencies">Software Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#managing-and-updating-dependencies">Managing and Updating Dependencies</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-git-subtree">Using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-git-submodule">Using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-qt-designer-and-resource-manager">Using Qt designer and resource manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_format.html">Data Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBC Run Control</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/usage.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p>Install <a class="reference external" href="https://github.com/conda-forge/miniforge">miniforge</a> or <a class="reference external" href="https://conda-forge.org/download/">conda-forge</a>. This is preferred over miniconda and anaconda because of licensing problems of anaconda at Fermilab. If you already have those installed, it should still work, since the <code class="docutils literal notranslate"><span class="pre">conda_rc.yml</span></code> file has specified the channel. If there’s problem, follow <a class="reference external" href="https://conda-forge.org/docs/user/transitioning_from_defaults/">these instructions</a> to transition to conda-forge.</p></li>
+<li><p>Open the main repository directory in a shell terminal. Run <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">./init.sh</span></code> to initialize the environment for
+run control. The script will do the following things:</p>
+<ul class="simple">
+<li><p>Update conda.</p></li>
+<li><p>If there is no conda environment called <code class="docutils literal notranslate"><span class="pre">runcontrol</span></code>, then create a new environment using
+<code class="docutils literal notranslate"><span class="pre">dependencies/conra_rc.yml</span></code>. If it already exists, then update the packages to satisfy the file.</p></li>
+<li><p>Activate <code class="docutils literal notranslate"><span class="pre">runcontrol</span></code> conda environment.</p></li>
+<li><p>Using PySide6 tools to generate python files from ui and resources files.</p></li>
+<li><p>Add dependencies folder to system path.</p></li>
+<li><p>Download <code class="docutils literal notranslate"><span class="pre">arduino-cli</span></code> program, initialize, and download necessary libraries including <code class="docutils literal notranslate"><span class="pre">incbin</span></code> and <code class="docutils literal notranslate"><span class="pre">ArduinoJson</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Now it’s good to go! Start the program by running <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">rc.py</span></code>.</p></li>
+</ol>
+</section>
+<section id="software-dependencies">
+<h2>Software Dependencies<a class="headerlink" href="#software-dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/PySide6/"><strong>PySide6</strong></a>: Python library for Qt6 GUI framework.</p></li>
+<li><p><a class="reference external" href="https://arduino.github.io/arduino-cli/0.35/"><strong>Arduino-Cli</strong></a>: Command line utility for compiling and uploading Arduino sketches to the boards.</p></li>
+<li><p><a class="reference external" href="https://github.com/SBC-Collaboration/SBC-ArduinoSketches"><strong>SBC-ArduinoSketches</strong></a>: This repository includes Arduino sketches for clock, trigger fan-in/fan-out, and position sensing Arduinos.</p></li>
+<li><p><a class="reference external" href="https://github.com/SBC-Collaboration/SBCBinaryFormat"><strong>SBCBinaryFormat</strong></a>: This repository provides the python library for writing to and reading from sbc binary data format.</p></li>
+<li><p><a class="reference external" href="https://github.com/shengzhiheng/RedDigitizerplusplus"><strong>RedDigitizerplusplus</strong></a>: This is a PyBind11 wrapper around a C++ wrapper for CAEN’s C API. It can be used to control the CAEN digitizer directly from python.</p></li>
+<li><p><a class="reference external" href="https://www.caen.it/products/caendigitizer-library/"><strong>CAENDigitizer</strong></a>: Library of functions for CAEN Digitizers high level management.</p></li>
+<li><p><a class="reference external" href="https://www.caen.it/products/caencomm-library/"><strong>CAENComm</strong></a>: Interface library for CAEN Data Acquistion Modules/</p></li>
+<li><p><a class="reference external" href="https://www.caen.it/products/caenvmelib-library/"><strong>CAENVMELib</strong></a>: Interface library for CAEN VME Bridges.</p></li>
+<li><p><a class="reference external" href="https://github.com/SBC-Collaboration/SBC-Piezo-Base-Code"><strong>SBC-Piezo-Base-Code</strong></a>: This is a C++ driver for the GaGe digitizer. It is modified to work around the pre-trigger length limit imposed by the GaGe driver.</p></li>
+<li><p><a class="reference external" href="https://github.com/shengzhiheng/NI_USB-6501"><strong>NI_USB-6501</strong></a>: A third party driver for NI USB device, modified to work with Python3.</p></li>
+<li><p><a class="reference external" href="https://icons8.com/icon/set/file/ios"><strong>Icons8</strong></a>: Icons used in the program is by Icons8, specifically the IOS17 Outlined icon set.</p></li>
+<li><p>Other standard python libraries including <code class="docutils literal notranslate"><span class="pre">logging</span></code>, <code class="docutils literal notranslate"><span class="pre">json</span></code>, <code class="docutils literal notranslate"><span class="pre">time</span></code>, <code class="docutils literal notranslate"><span class="pre">datetime</span></code>, <code class="docutils literal notranslate"><span class="pre">os</span></code>, <code class="docutils literal notranslate"><span class="pre">sys</span></code>, <code class="docutils literal notranslate"><span class="pre">enum</span></code>, <code class="docutils literal notranslate"><span class="pre">re</span></code>, etc.</p></li>
+</ul>
+</section>
+<section id="managing-and-updating-dependencies">
+<h2>Managing and Updating Dependencies<a class="headerlink" href="#managing-and-updating-dependencies" title="Link to this heading"></a></h2>
+<p>The dependencies of this project is managed in a few different ways. <code class="docutils literal notranslate"><span class="pre">PySide6</span></code> is a public python library installed from pip into the conda environment. <code class="docutils literal notranslate"><span class="pre">SBCBinaryFormat</span></code> is a custom python library that is compiled and installed locally using pip into the conda environment. <code class="docutils literal notranslate"><span class="pre">SBC-ArduinoSketches</span></code> and <code class="docutils literal notranslate"><span class="pre">NI_USB-6501</span></code> are custom/modified code that is included in this repository in the <code class="docutils literal notranslate"><span class="pre">dependencies/</span></code> folder. They are managed using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code> comand. The drivers for CAEN and GaGe digitizers are also copied into <code class="docutils literal notranslate"><span class="pre">dependencies/</span></code> folder, but using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span></code> command for copyright reasons. <code class="docutils literal notranslate"><span class="pre">Arduino-Cli</span></code> is a public command line program, and the binary executable is downloaded to the DAQ PC, and the path to it is specified in config file.</p>
+<section id="using-git-subtree">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code><a class="headerlink" href="#using-git-subtree" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code> can be used to handle dependencies on external code. Unlike <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span></code> which contains a link to the original git repository, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code> contains a hard copy of the repository. Here’s a brief tutorial for using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code>, using the example of <code class="docutils literal notranslate"><span class="pre">SBC-ArduinoSketches</span></code> which is saved to <code class="docutils literal notranslate"><span class="pre">dependencies/ArduinoSketches</span></code>.</p>
+<ul class="simple">
+<li><p>First add the <code class="docutils literal notranslate"><span class="pre">SBC-ArduinoSketches</span></code> as a remote in the <code class="docutils literal notranslate"><span class="pre">RunControl</span></code> repository:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>arduino-repo<span class="w"> </span>https://github.com/SBC-Collaboration/SBC-ArduinoSketches.git
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Check that the remote has been added. Run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">remote</span> <span class="pre">-v</span></code>. The output should be:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arduino-repo<span class="w">	</span>https://github.com/SBC-Collaboration/SBC-ArduinoSketches.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+arduino-repo<span class="w">	</span>https://github.com/SBC-Collaboration/SBC-ArduinoSketches.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+origin<span class="w">	</span>https://github.com/SBC-Collaboration/SBC-RunControl.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+origin<span class="w">	</span>https://github.com/SBC-Collaboration/SBC-RunControl.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Add the repository into git subtree:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>subtree<span class="w"> </span>add<span class="w"> </span>--prefix<span class="w"> </span><span class="o">{</span><span class="nb">local</span><span class="w"> </span>directory<span class="w"> </span>being<span class="w"> </span>pulled<span class="w"> </span>into<span class="o">}</span><span class="w"> </span><span class="o">{</span>remote<span class="w"> </span>repo<span class="o">}</span><span class="w"> </span><span class="o">{</span>remote<span class="w"> </span>branch<span class="o">}</span><span class="w"> </span>--squash
+</pre></div>
+</div>
+<p>In this example, it would be:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>subtree<span class="w"> </span>add<span class="w"> </span>--prefix<span class="w"> </span>dependencies/ArduinoSketches<span class="w"> </span>arduino-repo<span class="w"> </span>main<span class="w"> </span>--squash
+</pre></div>
+</div>
+<p>This should copy the external repository in the the local directory. The <code class="docutils literal notranslate"><span class="pre">--squash</span></code> parameter consolidates all commit history of the external repository into one commit, simplifying the local repository history.</p>
+<ul class="simple">
+<li><p>After changes have been made locally in the <code class="docutils literal notranslate"><span class="pre">dependencies/ArduinoSketches</span></code> folder, committhe changes using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span></code>.</p></li>
+<li><p>Upload the changes to external repository by running the following command in the main directory of <code class="docutils literal notranslate"><span class="pre">RunControl</span></code>:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>subtree<span class="w"> </span>push<span class="w"> </span>--prefix<span class="o">=</span>dependencies/ArduinoSketches<span class="w"> </span>arduino-repo<span class="w"> </span>main
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Upload changes to <code class="docutils literal notranslate"><span class="pre">RunControl</span></code> repository by running <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">main</span></code>.</p></li>
+<li><p>If there has been some changes in the external repository, run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span> <span class="pre">pull</span> <span class="pre">--prefix=dependencies/ArduinoSketches</span> <span class="pre">arduino-repo</span> <span class="pre">main</span></code> to pull the changes. Commit merges in <code class="docutils literal notranslate"><span class="pre">RunControl</span></code> repository and upload.</p></li>
+</ul>
+</section>
+<section id="using-git-submodule">
+<h3>Using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span></code><a class="headerlink" href="#using-git-submodule" title="Link to this heading"></a></h3>
+<p>Like <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">subtree</span></code>, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span></code> also handles including other git repositories as dependencies. Submodules act as pointers to external repositories, which are managed independently, including access control and pointers to specific commits. Using the example of <code class="docutils literal notranslate"><span class="pre">CAENDrivers</span></code>, which has a nested working tree as <code class="docutils literal notranslate"><span class="pre">dependencies/CAENDrivers</span></code>. The remote repository of <code class="docutils literal notranslate"><span class="pre">CAENDrivers</span></code> is private, requiring authentication.</p>
+<ul class="simple">
+<li><p>To download submodule repositories while cloning the main repo. By default, only the submodule configuration file <code class="docutils literal notranslate"><span class="pre">.gitmodules</span></code> and an empty folder is created at cloning.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/SBC-Collaboration/SBC-RunControl.git<span class="w"> </span>RunControl
+</pre></div>
+</div>
+<p>Downloading the submodules can also be done as a separate step at later times.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/SBC-Collaboration/SBC-RunControl.git<span class="w"> </span>RunControl
+&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>RunControl
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive<span class="w">  </span><span class="c1"># Populates submodules</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To add the repository as a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">submodule</span></code> dependency, add the submodule, commit the changes in <code class="docutils literal notranslate"><span class="pre">.gitmodules</span></code> and <code class="docutils literal notranslate"><span class="pre">dependencies/CAENDrivers</span></code>, and push the commit to main repo. Note that cloning the submodule and pushing to remote may require token or public key authentication.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>RunControl&gt;<span class="w"> </span>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>&lt;submodule_url&gt;<span class="w"> </span>&lt;path&gt;<span class="w"> </span>
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span>&lt;commit_message&gt;
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<p>For the <code class="docutils literal notranslate"><span class="pre">CAENDrivers</span></code> example, it would be</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>RunControl&gt;<span class="w"> </span>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/SBC-Collaboration/CAENDrivers.git<span class="w"> </span>dependencies/CAENDrivers
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add CAENDrivers submodule&quot;</span>
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To make changes in the submodule locally, and push to remote of both submodule and main repositories.</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>Update the submodule</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>RunControl&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>dependencies/CAENDrivers
+CAENDrivers&gt;<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>.<span class="w"> </span>
+CAENDrivers&gt;<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span>&lt;commit_message&gt;
+CAENDrivers&gt;<span class="w"> </span>git<span class="w"> </span>push
+CAENDrivers&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>../..
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Update parent repo</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>RunControl&gt;<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>dependencies/CAENDrivers
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span>&lt;commit_message&gt;
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To pull updates in the remote submodule repository:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>RunControl&gt;<span class="w"> </span>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote<span class="w"> </span>--recursive<span class="w">  </span><span class="c1"># Pull latest version of submodules</span>
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>dependencies/CAENDrivers
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span>&lt;commit_message&gt;
+RunControl&gt;<span class="w"> </span>git<span class="w"> </span>push
+</pre></div>
+</div>
+</section>
+</section>
+<section id="using-qt-designer-and-resource-manager">
+<h2>Using Qt designer and resource manager<a class="headerlink" href="#using-qt-designer-and-resource-manager" title="Link to this heading"></a></h2>
+<p>Qt designer can be used to edit all the UI components, then a python script can load the UI and add functionalities to the widgets (buttons, labels, etc). To use the designer program, run <code class="docutils literal notranslate"><span class="pre">pyside6-designer</span></code> within the conda envrionment. After saving the <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyside6-uic<span class="w"> </span>filename.ui<span class="w"> </span>-o<span class="w"> </span>filename.py
+</pre></div>
+</div>
+<p>to generate the python file. This step needs to be repeated for every <code class="docutils literal notranslate"><span class="pre">.ui</span></code> file.</p>
+<p>The resource manager in Qt can be used as a convinient way to keep track of all resources. This can include icons, images, config files, data, etc. The list is saved as a <code class="docutils literal notranslate"><span class="pre">.qrc</span></code> file, and can be edited in the designer. To update the resources, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pyside6-rcc<span class="w"> </span>filename.qrc<span class="w"> </span>-o<span class="w"> </span>resources_rc.py
+</pre></div>
+</div>
+<p>to generate python script. The <code class="docutils literal notranslate"><span class="pre">resources_rc</span></code> filename seems to be the default expected by the uic program. After placing the <code class="docutils literal notranslate"><span class="pre">resources_rc.py</span></code> file in the working directory, the program should load all data correctly.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="SBC Run Control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="project_description.html" class="btn btn-neutral float-right" title="Project Description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025 SBC Collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

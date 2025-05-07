@@ -1,0 +1,36 @@
+# Accessing Data
+
+## MySQL Database
+The MySQL database is running on the slow control computer (`sbcslowcontrol.fnal.gov`, `131.225.192.195`) in MINOS. This is where the data from PLC and run control are saved to. The database is also periodically mirrored to the mirror computer (`sbcmirror.fnal.gov`, `131.225.56.245`) on the 6th floor of Wilson. Since slow control is also responsible for the graphical interface for live monitoring of the detector, and that it's also the source of truth of data, it is preferred that everyone access the data on the mirror machine if possible. 
+
+### Linux (and maybe MacOS?)
+In a terminal, connect to slow control machine by running `ssh -L [port]:sbcslowcontrol.fnal.gov:3306 hep@sbcslowcontrol.fnal.gov`. Use 3306 for `[port]`, if there's no MySQL server running on local machine. Otherwise just choose an open port. This forwards the 3306 port on remote machine to `[port]` on local machine. 
+
+If using `~/.ssh/config`, create an entry of similar to the following:
+```bash
+Host slowcontrol
+HostName sbcslowcontrol.fnal.gov
+User hep
+Port 22
+LocalForward 3306 sbcslowcontrol.fnal.gov:3306
+AddressFamily inet  # use IPv4
+```
+Then run `ssh slowcontrol` in command line to connect.
+
+### Windows
+In PuTTY, create a session for slow control. Host Name should be `hep@sbcslowcontrol.fnal.gov`. Port should be `22`. Connection type should be `SSH`. Go to `Connection -> SSH -> Tunnels`, and add a new port forwarding. Use `3306` for source port if no MySQL server is running on the local machine. If there is, choose an open port. Use `sbcslowcontrol.fnal.gov:3306` for destination. Add the port forwarding setting. Save the session and open the connection. 
+
+### Using command line
+The easiest way for accessing the MySQL database is through command line. After and SSH connection is established, execute `mysql -u [user] -p` to open up the MySQL CLI interface, where `[user]` is the MySQL user. The user needs to be allowed access from `localhost`.
+
+### Using GUI software
+There's a wide selection of MySQL graphical softwares available. Two free and cross-platform options are [MySQL Workbench](https://www.mysql.com/products/workbench/) and [DBeaver](https://dbeaver.io/). I'm going to use MySQL Workbench as example. \
+On the main page, add a new item in "MySQL Connections". Or on the menu bar, go to `Database -> Connect to Database`. Use the following settings:
+```bash
+Connection Type: Standard (TCP/IP)
+Hostname: 127.0.0.1
+Port: 3306
+Username: [user]  # MySQL user allowed on sbcslowcontrol.fnal.gov, and not only localhost
+```
+Then open connection, and the SQL editor should be open. Now we can run some queries and get the results.
+

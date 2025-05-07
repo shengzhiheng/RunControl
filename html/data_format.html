@@ -1,0 +1,432 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Formats &mdash; SBC Run Control 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=2709fde1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Documentation" href="documentation.html" />
+    <link rel="prev" title="Project Description" href="project_description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SBC Run Control
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_description.html">Project Description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Formats</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#main-configuration">Main configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-data">Run Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-data">Event Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#event-info">Event Info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#scintillation-data">Scintillation Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acoustics-data">Acoustics Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#camera-info">Camera Info</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SBC Run Control</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data Formats</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/data_format.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-formats">
+<h1>Data Formats<a class="headerlink" href="#data-formats" title="Link to this heading"></a></h1>
+<p>This documentation contains information for the data structures of different saved files by the Run Control software and different modules.</p>
+<section id="main-configuration">
+<h2>Main configuration<a class="headerlink" href="#main-configuration" title="Link to this heading"></a></h2>
+<p>The master configuration file is saved in <code class="docutils literal notranslate"><span class="pre">.json</span></code> format. It contains configuration for run control itself and also all modules, including SiPM amps, CAEN, GaGe, cameras, arduinos, NI USB, and SQL. When run control starts, it will read the file from the main run control folder, and populate the fields in the settings window. After editing in the setting window, applying will update the config dictionary, and saving will update the dictionary and update the local file. Loading from a file will overwrite only the fields available in the file.
+At the start of a run, a copy of the config dictionay to the run_config dictionary, which will be used as the reference config for all modules during the entire run. If some changes are made in the settings window during a run, it will only change the config dictionary, and not the run_config dictionary. A json copy of the run config is saved to the run data folder.
+The data structure is:</p>
+<ul class="simple">
+<li><p><strong>general</strong>: General configuration for the run control software. This includes paths that the software uses in
+normal operation. This information generally doesn’t change across runs and different days.</p>
+<ul>
+<li><p><strong>config_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Path to the master config json file.</p></li>
+<li><p><strong>log_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Path to the log file.</p></li>
+<li><p><strong>data_dir</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Main directory where all of the data is saved.</p></li>
+<li><p><strong>max_ev_time</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, s): Max time an event can last. After the maximum is reached, a software trigger is sent from run control.</p></li>
+<li><p><strong>max_num_evs</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Max number of events that a run can have. If the max number is reached, then the run will end, instead of starting a new event.</p></li>
+<li><p><strong>sql</strong>: SQL configurations</p>
+<ul>
+<li><p><strong>hostname</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Host name of SQL server</p></li>
+<li><p><strong>port</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Port used by SQL server</p></li>
+<li><p><strong>user</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): User name for SQL connection</p></li>
+<li><p><strong>token</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Environment variable of the password used for SQL connection</p></li>
+<li><p><strong>database</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of database to which the data is saved</p></li>
+<li><p><strong>run_table</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of the table in the database that the information for the run is saved to</p></li>
+<li><p><strong>event_table</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of the table in the database that the event data is saved to.</p></li>
+</ul>
+</li>
+<li><p><strong>pressure</strong>: Pressure profiles for the run.</p>
+<ul>
+<li><p><strong>mode</strong>: The selection mode of pressure profiles for events in a run. If <code class="docutils literal notranslate"><span class="pre">random</span></code>, then a profile is chosen randomly among enabled ones. If <code class="docutils literal notranslate"><span class="pre">cycle</span></code>, then it will cycle through all enabled ones in order.</p></li>
+<li><p><strong>profile1</strong>, <strong>profile2</strong>, <strong>profile3</strong>, <strong>profile4</strong>, <strong>profile5</strong>, <strong>profile6</strong>: Six slots for pressure profiles to choose from.</p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this profile is enabled to be used in the run.</p></li>
+<li><p><strong>setpoint</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, bara): Pressure set point if it only uses one, and lower pressure set point if it oscillates between two values.</p></li>
+<li><p><strong>setpoint_high</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, bara): Higher pressure set point if it oscillates between two values. If only one setpoint is needed, just set this value to number smaller than <code class="docutils literal notranslate"><span class="pre">setpoint</span></code>, preferably 0.</p></li>
+<li><p><strong>slope</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, bar/s): The speed of expansion at the start of the event.</p></li>
+<li><p><strong>period</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, s): The period of oscillation between the low and high pressure set points.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>scint</strong>: Scintillation related settings, including SiPM amplifiers and CAEN digitizer.</p>
+<ul>
+<li><p><strong>amp1</strong>, <strong>amp2</strong>, <strong>amp3</strong></p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this amplifier is enabled.</p></li>
+<li><p><strong>ip_addr</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Local IP address of this amplifier’s nanopi.</p></li>
+<li><p><strong>bias</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, V): Reverse bias voltage for SiPMs. This is the <code class="docutils literal notranslate"><span class="pre">HVout</span></code> variable in the documentation. Positive number means reverse bias.</p></li>
+<li><p><strong>qp</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, V): Charge pump voltage, defaults to 70V. This sets the upper limit of <code class="docutils literal notranslate"><span class="pre">HVout</span></code>.</p></li>
+<li><p><strong>iv_enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether to perform IV curve measurements automatically.</p></li>
+<li><p><strong>iv_data_dir</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Directory on the nanopi to save the IV measurement results.</p></li>
+<li><p><strong>iv_rc_dir</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Directory on the run control where data is saved.</p></li>
+<li><p><strong>iv_interval</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, hours): If an IV curve measurement within this interval already exists at the satart or end of a run, no IV curve measurement will be performed.</p></li>
+<li><p><strong>iv_start</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, V): Start (lower) voltage of measurement.</p></li>
+<li><p><strong>iv_stop</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, V): End (higher) voltage of measurement.</p></li>
+<li><p><strong>iv_step</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, V): Voltage step of measurement.</p></li>
+<li><p><strong>ch_offset</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, V): Voltage offset for each channel.</p></li>
+</ul>
+</li>
+<li><p><strong>caen</strong>: General config for CAEN digitizer.</p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this module in run control is enabled. If disabled, nothing will be done.</p></li>
+<li><p><strong>data_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Path on the DAQ PC that the data of the current event should be saved to. This can be a symbolic link.</p></li>
+<li><p><strong>model</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Model of digitizer (DT5740 for Fermilab chamber).</p></li>
+<li><p><strong>link</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): COM port of digitizer. If this is the first CAEN digitizer, it will be 0. If not, increment from there.</p></li>
+<li><p><strong>connection</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Connection type: USB or PCIe.</p></li>
+<li><p><strong>evs_per_read</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Maximum number of events per read from digitizer to PC memory. If number of events on digitizer is fewer, than all events will be transferred.</p></li>
+<li><p><strong>rec_length</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Record length for each buffer, or number of samples in a waveform. The actual record length may be the closest multiple of 3.</p></li>
+<li><p><strong>post_trig</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Percentage of samples after the trigger. 0% means trigger is at the end of waveform.</p></li>
+<li><p><strong>trig_in_as_gate</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): If <code class="docutils literal notranslate"><span class="pre">true</span></code>, the TRIG-IN port on the digitizer will serve as gate for triggering in all other channels. This means that only if the TRIG-IN is true will the data channel triggering be enabled. If <code class="docutils literal notranslate"><span class="pre">false</span></code>, the TRIG-IN will serve as an additional channel of trigger, which may be useful when doing LED calibration.</p></li>
+<li><p><strong>decimation</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Decimation factor for acquisition. This can be n=[0..7], and the sampling frequency is f = 62.5 MHz/s / (2 ^ n).</p></li>
+<li><p><strong>overlap_en</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether overlapping triggers are enabled. Overlapping triggers are triggers that appear inside the acquisition window of another trigger.</p></li>
+<li><p><strong>memory_full</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Memory full mode. If “Normal”, then the CAEN will reject triggers when the memory is full. If “One Buffer Free”, it will reject triggers when only one buffer is free. This case, when the first buffer is being read, a new trigger can be accepted and written to the free buffer, make dead time a little shorter.</p></li>
+<li><p><strong>counting_mode</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): If “Accepted Only”, only accepted triggers will increment <strong>EventCounter</strong>. If “All”, all triggers, including rejected triggers, will increment <strong>EventCounter</strong>, so we can know if any triggers are rejected.</p></li>
+<li><p><strong>polarity</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Trigger polarity. Rising of falling edge.</p></li>
+<li><p><strong>majority_level</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): How many groups need to generate concurrent triggers for a global trigger to be generated. A <code class="docutils literal notranslate"><span class="pre">majority_level</span></code> of 0 means any channel from 1 group or more will be accepted.</p></li>
+<li><p><strong>majority_window</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, 8 ns): The concurrent triggers need to be with in this many clock cycles of each other to count. The internal clock frequency is 125 MHz, so each cycle is 8 ns.</p></li>
+<li><p><strong>clock_source</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Where the reference clock comes from. Could be “Internal” or “External”. Internal clock is at 125 MHz.</p></li>
+<li><p><strong>acq_mode</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): How the acquisition can be enabled or disabled. Can be “SW CTRL”, “TRG-IN CTRL”, or “GPI CTRL”.</p></li>
+<li><p><strong>io_level</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Selects IO level for TRIG-IN, GPO, and GPI ports. Can be NIM or TTL.</p></li>
+<li><p><strong>ext_trig</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Mode of external trigger if <code class="docutils literal notranslate"><span class="pre">trig_in_as_gate</span></code> not enabled. Can be <code class="docutils literal notranslate"><span class="pre">disabled</span></code>, <code class="docutils literal notranslate"><span class="pre">extout</span> <span class="pre">only</span></code>, <code class="docutils literal notranslate"><span class="pre">acq</span> <span class="pre">only</span></code> or <code class="docutils literal notranslate"><span class="pre">extout+acq</span></code>. This sets if the external trigger is used to generate acquisition trigger, or trigger output, or both, or neither.</p></li>
+<li><p><strong>sw_trig</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Mode of software trigger, with the same set of options as previous.</p></li>
+<li><p><strong>ch_trig</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Mode of channel self trigger, with the same set of options as previous.</p></li>
+</ul>
+</li>
+<li><p><strong>caen_g0</strong>, <strong>caen_g1</strong>, <strong>caen_g2</strong>, <strong>caen_g3</strong>: Per-group config for CAEN digitizer.</p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this entire group is enabled.</p></li>
+<li><p><strong>offset</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): 16-bit offset value for entire group for 2Vpp [0..65535].</p></li>
+<li><p><strong>range</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Voltage range of this group. DT5740 can only be “2 Vpp”.</p></li>
+<li><p><strong>thresdhold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Triggering threshold for this group. 12 bit value corresponding to 2Vpp [0..4095].</p></li>
+<li><p><strong>trig_mask</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, 8): Specifies if each individual channel participates in triggering.</p></li>
+<li><p><strong>acq_mask</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>, 8): Specifies if data from individual channel is saved.</p></li>
+<li><p><strong>ch-offset</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, 8): 8-bit per-channel offset on top of group offset. [0..255] added to the 16-bit offset.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>acous</strong></p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this module is enabled. If not, everything will be skipped.</p></li>
+<li><p><strong>data_dir</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Director on the DAQ PC that the acoustics data for this event should be saved to.</p></li>
+<li><p><strong>driver_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>mode</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>sample_rate</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>pre_trig_len</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>post_trig_len</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>trig_timeout</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>trig_delay</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>ch1</strong>, <strong>ch2</strong>, <strong>ch3</strong>, <strong>ch4</strong>, <strong>ch5</strong>, <strong>ch6</strong>, <strong>ch7</strong>, <strong>ch8</strong></p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</p></li>
+<li><p><strong>range</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>offset</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>impedance</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>coupling</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>trig</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</p></li>
+<li><p><strong>polarity</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+</ul>
+</li>
+<li><p><strong>ext</strong></p>
+<ul>
+<li><p><strong>range</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+<li><p><strong>trig</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>)</p></li>
+<li><p><strong>polarity</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>cam</strong></p>
+<ul>
+<li><p><strong>cam1</strong>, <strong>cam2</strong>, <strong>cam3</strong></p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this camera is enabled. If not, this camera will be skipped.</p></li>
+<li><p><strong>rc_config_path</strong>: Path of config file in the run control system.</p></li>
+<li><p><strong>config_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Path of the config file in camera’s raspberry pi system.</p></li>
+<li><p><strong>data_path</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Data Path for the current event on the camera pi (mounted directory). For the main config file, this will be the mounted directory of the master data file. For the config file saved on camera for each event, it will be that path joined with run and event id.</p></li>
+<li><p><strong>ip_addr</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): IP address of camera raspberry pi. This should be in the local subnet.</p></li>
+<li><p><strong>mode</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Mode of the camera, which determines the resolution, pixel format, and trigger mode. Useful
+modes for this camera is mode 5 (1280x800, self trigger) and mode 11 (1280x800, external trigger)</p></li>
+<li><p><strong>trig_wait</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>, s): Time after event start before the <code class="docutils literal notranslate"><span class="pre">trig_en</span></code> signal is sent by the run control. This
+variable is used only by run control and not the RPi.</p></li>
+<li><p><strong>exposure</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The exposure time of camera module. This number is in units of 7.7us.</p></li>
+<li><p><strong>buffer_len</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Number of images to keep in the ring buffer.</p></li>
+<li><p><strong>post_trig</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Number of images to take after a trigger is received.</p></li>
+<li><p><strong>adc_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The threshold of adc value change between two consecutive images before the pixel is
+counted as different. The image is taken in 8bit.</p></li>
+<li><p><strong>pix_threshold</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The threshold of number of pixels that need to be different between two consecutive
+images before the trigger condition is satisfied.</p></li>
+<li><p><strong>image_format</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): The format in which the image is saved. For example it can be “bmp”, “png”, or “jpg”.</p></li>
+<li><p><strong>date_format</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>state_comm_pin</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The pin number on the raspberry pi for the state_comm pin. This is the BCM pin
+number (GPIOx) and not the physical pin number.</p></li>
+<li><p><strong>trig_en_pin</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The pin at which the trigger enable signal is received.</p></li>
+<li><p><strong>trig_latch_pin</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The pin at which the trigger latch signal from the trigger arduino is received.</p></li>
+<li><p><strong>state_pin</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The output pin for state communication back to run control.</p></li>
+<li><p><strong>trig_pin</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): The output pin when the trigger condition is satisfied to trigger arduino.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>dio</strong>: All settings related to the digital input/output box.</p>
+<ul>
+<li><p><strong>trigger</strong>: Trigger fan-in/fan-out arduino.</p>
+<ul>
+<li><p><strong>port</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Serial port that this arduino is connected to. A custom informational name should be assigned based on the port on the USB hub.</p></li>
+<li><p><strong>sketch</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Location of the sketch folder for this arduino.</p></li>
+<li><p><strong>loop</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, us): How long each loop of the code should take. If arduino cannot complete the tasks within that time, it will print warning to serial and lower the <code class="docutils literal notranslate"><span class="pre">on_time</span></code> pin.</p></li>
+<li><p><strong>reset</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Reset pin. Resets all trigger latch pins back to low.</p></li>
+<li><p><strong>or</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Logic OR (non-latching) pin.</p></li>
+<li><p><strong>on_time</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): On-time pin showing whether all operations completed within designated clock cycle (100 us).</p></li>
+<li><p><strong>heartbeat</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Heartbeat pin, oscillates between high and low each clock cycle.</p></li>
+<li><p><strong>trig1</strong>, <strong>trig2</strong>, <strong>trig3</strong>, <strong>trig4</strong>, <strong>trig5</strong>, <strong>trig6</strong>, <strong>trig7</strong>, <strong>trig8</strong>, <strong>trig9</strong>, <strong>trig10</strong>, <strong>trig11</strong>, <strong>trig12</strong>, <strong>trig13</strong>, <strong>trig14</strong>, <strong>trig15</strong>, <strong>trig16</strong></p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this channel is enabled. If not, trigger in to this channel will not be counted in the global latching.</p></li>
+<li><p><strong>name</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name for this pin for information.</p></li>
+<li><p><strong>compressions</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Whether this trigger causes fast or slow compression in the PLC.</p></li>
+<li><p><strong>in</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Trigger in pin.</p></li>
+<li><p><strong>first_fault</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): First fault pin.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>clock</strong>: Clock arduino for syncing LED, camera, and CAEN.</p>
+<ul>
+<li><p><strong>port</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Serial port for this device.</p></li>
+<li><p><strong>sketch</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Location of sketch folder.</p></li>
+<li><p><strong>loop</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, us): How long each loop of the code should take. If arduino cannot complete the tasks within that time, it will print warning to serial and lower the <code class="docutils literal notranslate"><span class="pre">on_time</span></code> pin.</p></li>
+<li><p><strong>wave1</strong>, <strong>wave2</strong>, <strong>wave3</strong>, <strong>wave4</strong>, <strong>wave5</strong>, <strong>wave6</strong>, <strong>wave7</strong>, <strong>wave8</strong>, <strong>wave9</strong>, <strong>wave10</strong>, <strong>wave11</strong>, <strong>wave12</strong>, <strong>wave13</strong>, <strong>wave14</strong>, <strong>wave15</strong>, <strong>wave16</strong></p>
+<ul>
+<li><p><strong>enabled</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): If not enabled, this channel will always be low.</p></li>
+<li><p><strong>name</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Name of channel for information.</p></li>
+<li><p><strong>gated</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): Whether this channel is controlled by the trigger gate signal from trigger arduino. If true, this channel will only be active when the gate pin is high from trigger arduino.</p></li>
+<li><p><strong>period</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Period of this wave, in units of <code class="docutils literal notranslate"><span class="pre">loop</span></code>.</p></li>
+<li><p><strong>phase</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Phase of the wave in units of <code class="docutils literal notranslate"><span class="pre">loop</span></code>.</p></li>
+<li><p><strong>duty</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Duty cycle of the wave, in units of percent.</p></li>
+<li><p><strong>polarity</strong> (<code class="docutils literal notranslate"><span class="pre">bool</span></code>): If positive, then the wave will first be high and be low. Vice versa for polarity.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>position</strong>: Position arduino for measuring the location of the bellow.</p>
+<ul>
+<li><p><strong>port</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Serial port for this device.</p></li>
+<li><p><strong>sketch</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Location of sketch folder.</p></li>
+<li><p><strong>mac_addr</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): MAC address for Modbus setting. This can be any value, as long as it’s unique in the subnet. Using the value printed on the Ethernet shield.</p></li>
+<li><p><strong>ip_addr</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Local static IP address in the subnet.</p></li>
+<li><p><strong>gateway</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+<li><p><strong>subnet</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="run-data">
+<h2>Run Data<a class="headerlink" href="#run-data" title="Link to this heading"></a></h2>
+<p>The run data is saved in the <code class="docutils literal notranslate"><span class="pre">RunData</span></code> tables in the slow control SQL database. There is one line per run.</p>
+<ul class="simple">
+<li><p><strong>ID</strong> (<code class="docutils literal notranslate"><span class="pre">BIGINT</span> <span class="pre">UNSIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">PRIMARY</span> <span class="pre">KEY</span></code>, <code class="docutils literal notranslate"><span class="pre">AUTO-INCREMENT</span></code>): Auto-generated unique integer ID.</p></li>
+<li><p><strong>run_ID</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">UNIQUE</span> <span class="pre">KEY</span></code>): Run ID generated by run control software, like “20240101_0”.</p></li>
+<li><p><strong>num_events</strong> (<code class="docutils literal notranslate"><span class="pre">INT</span> <span class="pre">UNSIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Number of events in the run.</p></li>
+<li><p><strong>run_livetime</strong> (<code class="docutils literal notranslate"><span class="pre">TIME(3)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Total livetime of the run, with ms precision.</p></li>
+<li><p><strong>comment</strong> (<code class="docutils literal notranslate"><span class="pre">TEXT</span></code>): Any comments entered by the user during the run.</p></li>
+<li><p><strong>active_datastreams</strong> (<code class="docutils literal notranslate"><span class="pre">SET('imaging',</span> <span class="pre">'scintillation',</span> <span class="pre">'acoustics')</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): A list of active data streams
+for the run. It can have zero, one, or multiple entries, from the predetermined list. If it has zero elements, it is saved as an empty string, and not NULL.</p></li>
+<li><p><strong>pset_mode</strong> (<code class="docutils literal notranslate"><span class="pre">ENUM('random',</span> <span class="pre">'sequential')</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Mode of pressure setpoint in this run. If <code class="docutils literal notranslate"><span class="pre">random</span></code>, then run control will choose randomly from the list. If <code class="docutils literal notranslate"><span class="pre">sequential</span></code>, then run control will cycle through the pressure setpoints in the list in order.</p></li>
+<li><p><strong>pset</strong> (<code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Pressure set point of the run. If the run is doing pressure ramping, then the higher setpoint of the ramp</p></li>
+<li><p><strong>start_time</strong> (<code class="docutils literal notranslate"><span class="pre">TIMESTAMP(3)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): UTC timestamp of when the run starts, with ms precision</p></li>
+<li><p><strong>end_time</strong> (<code class="docutils literal notranslate"><span class="pre">TIMESTAMP(3)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): UTC timestamp of when the run ends, with ms precision</p></li>
+<li><p><strong>source1_ID</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>): Name of source 1</p></li>
+<li><p><strong>source1_location</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>): Location of source 1</p></li>
+<li><p><strong>source2_ID</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>): Name of source 2</p></li>
+<li><p><strong>source2_location</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>): Location of source 2</p></li>
+<li><p><strong>source3_ID</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>): Name of source 3</p></li>
+<li><p><strong>source3_location</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>): Location of source 3</p></li>
+<li><p><strong>config</strong> (<code class="docutils literal notranslate"><span class="pre">JSON</span></code>): Saves the master config file in addition to the data folder. Should enable some SQL query using config info.</p></li>
+<li><p>More columns will be added when analysis module is running, like the last data reduction version performed and the date, etc.</p></li>
+</ul>
+</section>
+<section id="event-data">
+<h2>Event Data<a class="headerlink" href="#event-data" title="Link to this heading"></a></h2>
+<p>The event data is saved in the <code class="docutils literal notranslate"><span class="pre">EventData</span></code> tables in the slow control SQL database. There is one line per event.</p>
+<ul class="simple">
+<li><p><strong>ID</strong> (<code class="docutils literal notranslate"><span class="pre">INT</span> <span class="pre">UNSIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">PRIMARY</span> <span class="pre">KEY</span></code>, <code class="docutils literal notranslate"><span class="pre">AUTO-INCREMENT</span></code>): Auto-generated unique integer ID.</p></li>
+<li><p><strong>run_ID</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">MULTIPLE</span> <span class="pre">KEY</span> <span class="pre">(1)</span></code>): Run ID generated by run control software, like “20240101_0”. Run_ID and event_ID combined is a unique key for the event.</p></li>
+<li><p><strong>event_ID</strong> (<code class="docutils literal notranslate"><span class="pre">INT</span> <span class="pre">UNSIGNED</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>, <code class="docutils literal notranslate"><span class="pre">MULTIPLE</span> <span class="pre">KEY</span> <span class="pre">(2)</span></code>): Integer event ID starting from 0 in the run.</p></li>
+<li><p><strong>event_livetime</strong> (<code class="docutils literal notranslate"><span class="pre">TIME(3)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Run control livetime for this event.</p></li>
+<li><p><strong>cum_livetime</strong> (<code class="docutils literal notranslate"><span class="pre">TIME(3)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Cumulative livetime of the run at the end of the event.</p></li>
+<li><p><strong>pset</strong> (<code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Pressure set point for this event, in units of bara. If <code class="docutils literal notranslate"><span class="pre">pset_hi</span></code> exists, then this is the lower of the two set points.</p></li>
+<li><p><strong>pset_hi</strong> (<code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>): Higher pressure set point, in units of bara. If this number is lower than <code class="docutils literal notranslate"><span class="pre">pset</span></code> or is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, then there is only one set point.</p></li>
+<li><p><strong>pset_slope</strong> (<code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Slope of expansion from compressed state to the higher pressure set point, in units of bar/s.</p></li>
+<li><p><strong>pset_period</strong> (<code class="docutils literal notranslate"><span class="pre">FLOAT</span></code>): Period of oscillation between higher and lower set points. In units of seconds.</p></li>
+<li><p><strong>start_time</strong> (<code class="docutils literal notranslate"><span class="pre">TIMESTAMP(3)</span></code>): Timestamp of the event start.</p></li>
+<li><p><strong>stop_time</strong> (<code class="docutils literal notranslate"><span class="pre">TIMESTAMP(3)</span></code>): Timestamp of the event stop.</p></li>
+<li><p><strong>trigger_source</strong> (<code class="docutils literal notranslate"><span class="pre">VARCHAR(100)</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>): Name of trigger’s first fault.</p></li>
+</ul>
+</section>
+<section id="event-info">
+<h2>Event Info<a class="headerlink" href="#event-info" title="Link to this heading"></a></h2>
+<p>This data is saved in the SBC binary format using <code class="docutils literal notranslate"><span class="pre">SBCBinaryFormat</span></code> library, named <code class="docutils literal notranslate"><span class="pre">event_info.sbc</span></code> in the event data folder. It can be read into a python dictionary of numpy arrays. Each array will only have 1 row. The data structure is:</p>
+<ul class="simple">
+<li><p><strong>ev_number</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, 3): A list of date, run number, and event number of current event. For example, for Run
+20240101_0 Event 0, this list would be <code class="docutils literal notranslate"><span class="pre">[20240101,</span> <span class="pre">0,</span> <span class="pre">0]</span></code>.</p></li>
+<li><p><strong>ev_livetime</strong> (<code class="docutils literal notranslate"><span class="pre">uint64</span></code>): Event livetime in milliseconds. This is the time from when all modules are ready to
+when a trigger is received by the run control.</p></li>
+<li><p><strong>run_livetime</strong> (<code class="docutils literal notranslate"><span class="pre">uint64</span></code>): Run livetime in milliseconds. This is the sum of the current and all previous events.</p></li>
+<li><p><strong>pset</strong> (<code class="docutils literal notranslate"><span class="pre">float</span></code>): Pressure setpoint for this event. In case of pressure ramping or random sampling, the pressure setpoint could be different for each event.</p></li>
+<li><p><strong>trigger_source</strong> (<code class="docutils literal notranslate"><span class="pre">str</span></code>): Trigger first fault source. This trigger is the one that causes the global trigger latch.</p></li>
+</ul>
+</section>
+<section id="scintillation-data">
+<h2>Scintillation Data<a class="headerlink" href="#scintillation-data" title="Link to this heading"></a></h2>
+<p>This data is saved in the SBC binary format using <code class="docutils literal notranslate"><span class="pre">SBCBinaryFormat</span></code> library, named <strong>scintillation.sbc</strong> in the event data folder. It can be read into a python dictionary of numpy arrays. All arrays will have the same number of rows <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>, each correspond to a CAEN trigger. Also assume the number of channels enabled for acquisition is <code class="docutils literal notranslate"><span class="pre">n_chs</span></code>, and the record length (number of samples per channel per trigger) is <code class="docutils literal notranslate"><span class="pre">rec_len</span></code>. The data structure is:</p>
+<ul class="simple">
+<li><p><strong>EventCounter</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>): The index for this CAEN event (CAEN trigger). If <strong>counting_mode</strong> is “All”, then this counter will increment for both accepted and rejected triggers.</p></li>
+<li><p><strong>TriggerSource</strong> (<code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>): A mask of where the trigger is from. Bits 0-3 means the trigger is from Group 0-3. Bit 4 means external trigger (TRIG-IN port), and bit 5 means software trigger.</p></li>
+<li><p><strong>GroupMask</strong> (<code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>): A mask telling which groups are enabled. Bits 0-3 means group 0-3. This is the “ChannelMask” in <code class="docutils literal notranslate"><span class="pre">CAEN_DGTZ_EventInfo_t</span></code>.</p></li>
+<li><p><strong>TriggerMask</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>): A mask of which channels are enabled for generating triggers. If a group is disabled, then all channels in that group are disabled. Bits 0-31 means channel 0-31. This is calculated from <code class="docutils literal notranslate"><span class="pre">CAENGroupConfig</span></code>.</p></li>
+<li><p><strong>AcquisitionMask</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>): A mask of which channels are enabled for acquiring data. If a group is disabled, then all channels in that group are disabled. Bits 0-31 means channel 0-31. This is calculated from <code class="docutils literal notranslate"><span class="pre">CAENGroupConfig</span></code>.</p></li>
+<li><p><strong>TriggerTimeTag</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>): Time stamp for the CAEN event. It is a 31-bit number, from the reference clock 125 MHz (8 ns). It is only read once every 2 clock cycles, so the least significant bit (LSB) is always 0, meaning the resolution is 16 ns.</p></li>
+<li><p><strong>Waveforms</strong> (<code class="docutils literal notranslate"><span class="pre">uint16</span></code>, [<code class="docutils literal notranslate"><span class="pre">n_trigs</span></code>, <code class="docutils literal notranslate"><span class="pre">n_chs</span></code>, <code class="docutils literal notranslate"><span class="pre">rec_len</span></code>]). Raw 12-bit ADC waveforms data in a 3d-array.</p></li>
+</ul>
+</section>
+<section id="acoustics-data">
+<h2>Acoustics Data<a class="headerlink" href="#acoustics-data" title="Link to this heading"></a></h2>
+<p>This data is saved in the SBC binary format using <code class="docutils literal notranslate"><span class="pre">SBCBinaryFormat</span></code> library, named <strong>acoustics.sbc</strong> in the event data folder. It can be read into a python dictionary of numpy arrays. All arrays will have the same number of rows <code class="docutils literal notranslate"><span class="pre">n_segs</span></code>, each correspond to a GaGe triggers / segments. This number will typically only be 1, since we send a software trigger at the start of event, or when the acquisiton restarts, and at the end of event retrieve the waveforms around the bubble trigger. Also assume the number of channels enabled for acquisition is <code class="docutils literal notranslate"><span class="pre">n_chs</span></code>, which is always 8, since all channels need to be enabled. The number of samples per channel per trigger <code class="docutils literal notranslate"><span class="pre">len</span></code>, which is 100 ms * sample_rate. The data structure is:</p>
+<ul class="simple">
+<li><p><strong>Segment ID</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">n_segs</span></code>): Index of this segment.</p></li>
+<li><p><strong>Timestamp</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">n_segs</span></code>): Time stamp of this segment.</p></li>
+<li><p><strong>Trigger Number</strong> (<code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">n_segs</span></code>): At which sample did the bubble trigger occur. This can be used to tell if there has been enough pre-trigger samples.</p></li>
+<li><p><strong>Range</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, [<code class="docutils literal notranslate"><span class="pre">n_segs</span></code>, <code class="docutils literal notranslate"><span class="pre">n_chs</span></code>], mV): Voltage range for each channel. For example, range of 2000 mV means it’s 2 Vpp.</p></li>
+<li><p><strong>DC Offset</strong> (<code class="docutils literal notranslate"><span class="pre">uint32</span></code>, [<code class="docutils literal notranslate"><span class="pre">n_segs</span></code>, <code class="docutils literal notranslate"><span class="pre">n_chs</span></code>], mV): Voltage offset for each channel. For a 2 Vpp range, the minimum is -1000 mV, and maximum is +1000 mV.</p></li>
+<li><p><strong>Waveforms</strong> (<code class="docutils literal notranslate"><span class="pre">uint16</span></code>, [<code class="docutils literal notranslate"><span class="pre">n_segs</span></code>, <code class="docutils literal notranslate"><span class="pre">n_chs</span></code>, <code class="docutils literal notranslate"><span class="pre">len</span></code>]): The raw 14-bit ADC waveforms data in 3d-array. The two least significant bits are padded with 0, meaning this can be treated as a 16-bit number when converting to voltage, or divide by 4 and treat it as a 14-bit number.</p></li>
+</ul>
+</section>
+<section id="camera-info">
+<h2>Camera Info<a class="headerlink" href="#camera-info" title="Link to this heading"></a></h2>
+<p>Each camera will save a certain number of pre-trigger and post-trigger images in the specified format in the event data folder. In addition to that, each camera will save a log file. For camera 1, the file is named <strong>cam1.log</strong>. Also, each camera will save a info file, named <strong>cam1-info.csv</strong>. Each row of the file will correspond to a image saved in the folder. The structure of the file is</p>
+<ul class="simple">
+<li><p><strong>index</strong>: Index of this frame.</p></li>
+<li><p><strong>timestamp</strong> (<code class="docutils literal notranslate"><span class="pre">double</span></code>, s): Timestamp of when this frame is captured, based on the system time on the RPi.</p></li>
+<li><p><strong>pts</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, us): Presentation timestamp, generated by arducam. This is a hardware timestamp and should be more precise.</p></li>
+<li><p><strong>timediff</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>, us): Difference of the <strong>pts</strong> of this frame from the last frame.</p></li>
+<li><p><strong>skipped</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): Number of skipped frame between the previous frame and this frame. Right now if the <strong>timediff</strong> is more than 12 ms, it is counted as a skipped frame, and every 10 ms increments that number.</p></li>
+<li><p><strong>pixdiff</strong> (<code class="docutils literal notranslate"><span class="pre">int</span></code>): How many pixels changed between the previous frame and this frame. If a value of an 8-bit pixel changed more than <strong>adc_threshold</strong>, then this pixel is counted as different. If the number of different pixels is more than <strong>pix_threshold</strong> and the <strong>trig_en</strong> pin is high, then a trigger will be sent.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="project_description.html" class="btn btn-neutral float-left" title="Project Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024-2025 SBC Collaboration.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
